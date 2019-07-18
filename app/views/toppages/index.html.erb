@@ -1,3 +1,12 @@
 <div class="text-center">
   <h1>Welcome to the FooTan</h1>
+  
+  <div id="nav-search">
+    <%= form_tag '/', :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "検索" %>
+      </p>
+    <% end %>
+  </div><!-- nav-search -->
 </div>
