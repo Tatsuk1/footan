@@ -1,0 +1,5 @@
+<div class="row">
+<%= form_for(@user) do |f| %>
+  <%= f.label :profile_image, "ユーザー画像" %>
+  <%= f.file_field :profile_image %>
+<% end %>

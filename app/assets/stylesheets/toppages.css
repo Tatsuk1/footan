@@ -1,7 +1,7 @@
-body{
+#index, #new, #session{
   margin: 0;
   padding: 0;
-  background-image: url("line_61429260988960.jpg");
+  background: linear-gradient(to top, rgba(217, 175, 217, 0.5) 0%, rgba(151, 217, 225, 0.5) 100%),url(line_61429260988960.jpg);  /* 背景画像指定 */
   background-size: cover;
 }
 
@@ -33,4 +33,24 @@ body{
 .navbar{
   color: black;
   background-color: rgba(150, 150, 150, 0.7);
+}
+
+#show{
+  background-color:#FEF9FB;
+}
+
+.name{
+  margin-left:40px;
+}
+
+.btn1{
+  margin-left:40px;
+}
+
+img{
+  padding:5px;
+  border-radius:100%;
+  border: 9px solid #00cc00;
+  border-Image:linear-gradient(135deg, rgb(255, 102, 163)0%, rgb(255, 246, 163)50%, rgb(63, 118, 163)100%);  /*グラデーション*/
+  border-image-slice:1;
 }
