@@ -1,12 +1,26 @@
-<div class="text-center">
-  <h1>Welcome to the FooTan</h1>
-  
-  <div id="nav-search">
+<div class="text-center toppage">
+  <h1>ようこそFooTanへ</h1>
+  <h2>
+    キーワードを入力すると店舗の一覧・詳細を閲覧できます<br>
+    また、食事した店のメニューの投稿ができます  
+  </h2>
+
+
+   <div id="nav-search">
+     <% @rests.each do |rest| %>
+     <br><br><%= rest.inspect %><br><br>
+
+    <% end %>
+ 
+
+<div class="form-group">
     <%= form_tag '/', :method => 'get' do %>
       <p>
         <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "検索" %>
+        <%= submit_tag "検索", :freeword => nil, class: "btn btn-primary" %>
       </p>
     <% end %>
+  </div>
+    
   </div><!-- nav-search -->
 </div>
