@@ -1,3 +1,8 @@
+.boby{
+  margin:0;
+  padding:0;
+}
+
 #index, #new, #session{
   margin: 0;
   padding: 0;
@@ -35,22 +40,55 @@
   background-color: rgba(150, 150, 150, 0.7);
 }
 
-#show{
+#user_show{
   background-color:#FEF9FB;
 }
 
-.name{
-  margin-left:40px;
-}
 
 .btn1{
-  margin-left:40px;
+  margin-left:25px;
 }
 
-img{
+.image{
+
+  margin-left:-18px;
   padding:5px;
-  border-radius:100%;
   border: 9px solid #00cc00;
-  border-Image:linear-gradient(135deg, rgb(255, 102, 163)0%, rgb(255, 246, 163)50%, rgb(63, 118, 163)100%);  /*グラデーション*/
+  border-Image:linear-gradient(25deg, white,yellow,red,orange,pink);
   border-image-slice:1;
 }
+
+.pr_image, 
+.pr{
+   display: inline-block;
+   vertical-align: middle;
+
+}
+
+.pr{
+  vertical-align:top;
+    margin-top:-200px;
+    margin-left:400px;
+}
+
+.shop{
+  margin-top:5px;
+  border:solid 1px #b3b3b3;
+  border-top :solid 1px #e0e0e0;
+  border-bottom : solid 1px #717171;
+  background:linear-gradient(45deg,rgba(255,255,255,0.1),rgba(255,255,255,0.8),rgba(255,255,255,0.9)40%,rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgb(251,241,124),rgb(251,241,124),rgb(255,255,255),rgba(255,255,255,0.3));
+  background-size: auto 100%;
+}
+
+.pr_image{
+  margin-left:80px;
+  box-shadow: 10px 10px 15px -10px;
+
+}
+
+#shops_list{
+  background-color: rgb(197,224,254);
+}
+
+
+

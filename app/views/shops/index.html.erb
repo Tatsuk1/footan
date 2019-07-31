@@ -1,0 +1,20 @@
+<body id = shops_list>
+  <div class="shops">
+    <% if @shops&.any? %>
+      <% @shops.each do |shop| %>
+        <div class="shop">
+          <div class="pr_image">
+            <br><%= image_tag shop.image_url %>
+          </div>
+          <div class="pr">
+            <br>店舗名： <%= link_to shop.name, shop_path(shop.shop_code) %>
+            <br>住所： <%= shop.address %>
+            <br>電話番号： <%= shop.tel%>
+            <br>営業時間： <%= simple_format(shop.opentime) %>
+            休み： <%= simple_format(shop.holiday) %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</body>

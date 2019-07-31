@@ -5,24 +5,35 @@
       キーワードを入力すると店舗の一覧・詳細を閲覧できます<br>
       また、食事した店のメニューの投稿ができます  
     </h2>
-  
-  
-     <div id="nav-search">
-       <%# @rests.each do |rest| %>
-       <br><br><%#= rest.inspect %><br><br>
-  
-      <%# end %>
-   
-  
-  <div class="form-group">
-      <%= form_tag '/', :method => 'get' do %>
-        <p>
-          <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "検索", :freeword => nil, class: "btn btn-primary" %>
-        </p>
-      <% end %>
-    </div>
+    <ul>
+
+    </ul>
+
+    <div id="nav-search">
+      <div class="form-group">
+        <%= form_tag '/shops', :method => 'get' do %>
+          <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag "検索", :freeword => nil, class: "btn btn-primary" %>
+          </p>
+        <% end %>
+      </div>
       
+      <% if @rests&.any? %>
+        <% @rests.each do |rest| %>
+          <br><%= rest['id'] %>
+          <br><%= link_to rest['name'], rest['url'] %>
+          <br><%= rest['latitude'] %>
+          <br><%= rest['longitude'] %>
+          <br><%= image_tag rest['image_url']['shop_image1'], alt: rest['name'] + "写真" %>
+          <br><%= rest['address'] %>
+          <br><%= rest['tel'] %>
+          <br><%= simple_format(rest['opentime']) %>
+          <br><%= simple_format(rest['holiday']) %>
+          <hr>
+        <% end %>
+      <% end %>
+
     </div><!-- nav-search -->
   </div>
 </body>

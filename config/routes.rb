@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
   resources :users
+  
+  resources :shops, only: [:index, :show], param: :shop_code do
+    resources :posts
+  end
 end

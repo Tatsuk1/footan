@@ -1,20 +1,22 @@
-<body id = "show">
+<body id = "user_show">
   <div class="row">
+    <div class = "col-sm-3">
+      <div class="name">
+        <h2><%= @user.name %></h2>
+      </div>
+      <div class="image ">
+        <% if @user.image? %>
+          <%= image_tag @user.image.url %>
+        <% else %>
+          <%= image_tag("/images/icon/no-image.png") %>
+        <% end %>
+        </div>
+        <br>
+        <%= link_to "画像を変更する", edit_user_path(@user), class: "btn btn-primary btn1" %>
+    </div>
 
-    <div class="image">
-      <% if @user.image? %>
-        <%= image_tag @user.image.url %>
-      <% else %>
-        <%= image_tag("/images/icon/no-image.png") %>
-      <% end %><br><br>
-      <%= link_to "画像を変更する", edit_user_path(@user), class: "btn btn-primary btn1" %>
-    </div>
-    <div class="name">
-      <h2><%= @user.name %></h2>
-    </div>
-    
-    <div class="col-sm-8 offset-sm-2">
-      <ul class="nav nav-tabs nav-justified mb-2">
+    <div class="col-sm-8 offset-sm-1">
+      <ul class="nav nav-tabs nav-justified mb-1">
         <li class="nav-item"><a href="#" class="nav-link">投稿</a></li>
         <li class="nav-item"><a href="#" class="nav-link">いいね</a></li>
       </ul>
