@@ -43,7 +43,7 @@ require 'uri'
           shop.holiday = rest['holiday']
         end
         @rests << shop
-        shop.save
+        # shop.save
       end
     end
   end
@@ -53,6 +53,7 @@ require 'uri'
       redirect_to login_url
     end
   end
+  
 end
 
 

@@ -1,0 +1,25 @@
+<div class="row user">
+  <div class = "post_show">
+    <h2><%= link_to @post.user.name ,user_path(@post.user) %></h2>
+    <div class="food">
+      <% if @post.image? %>
+        <%= link_to @shop do %>
+          <%= image_tag @post.image.url %>
+        <% end %>
+      <% else %>
+        <%= image_tag("/images/icon/no-image.png") %>
+      <% end %>
+    </div>
+    <div class ="button">
+      <% if current_user == @post.user %>
+        <%= link_to "削除", @post, method: :delete, data: { confirm: "削除しますか？" }, class: 'btn btn-danger btn-sm' %>
+        <%= link_to '編集', edit_post_path(@post), class: 'btn btn-success btn-sm'%>
+      <% end %>
+    </div>
+    <div class = "comment">
+      <p>店舗名:<%=link_to @shop.name, shop_path(@post.shop) %><br></p>
+      <p>料理名:<%= @post.title %><br></p>
+      <p>コメント:<%= @post.content %><br></p>
+    </div>
+  </div>
+</div>

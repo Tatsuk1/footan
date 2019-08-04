@@ -18,22 +18,6 @@
           </p>
         <% end %>
       </div>
-      
-      <% if @rests&.any? %>
-        <% @rests.each do |rest| %>
-          <br><%= rest['id'] %>
-          <br><%= link_to rest['name'], rest['url'] %>
-          <br><%= rest['latitude'] %>
-          <br><%= rest['longitude'] %>
-          <br><%= image_tag rest['image_url']['shop_image1'], alt: rest['name'] + "写真" %>
-          <br><%= rest['address'] %>
-          <br><%= rest['tel'] %>
-          <br><%= simple_format(rest['opentime']) %>
-          <br><%= simple_format(rest['holiday']) %>
-          <hr>
-        <% end %>
-      <% end %>
-
     </div><!-- nav-search -->
   </div>
 </body>

@@ -17,6 +17,8 @@
   background-color: rgba(150, 150, 150, 0.7);
 }
 
+
+
 .login{
     padding-top: 20px;
     color: white;
@@ -41,7 +43,14 @@
 }
 
 #user_show{
-  background-color:#FEF9FB;
+  background-color:#E0F0F0;
+}
+
+.user_information{
+  margin-top:-30px;
+  padding-top:20px;
+  padding-left:20px;
+  background:white;
 }
 
 
@@ -54,7 +63,7 @@
   margin-left:-18px;
   padding:5px;
   border: 9px solid #00cc00;
-  border-Image:linear-gradient(25deg, white,yellow,red,orange,pink);
+  border-Image:linear-gradient(25deg, white,pink);
   border-image-slice:1;
 }
 
@@ -65,30 +74,94 @@
 
 }
 
-.pr{
-  vertical-align:top;
-    margin-top:-200px;
-    margin-left:400px;
-}
-
 .shop{
-  margin-top:5px;
+  display:flex;
   border:solid 1px #b3b3b3;
   border-top :solid 1px #e0e0e0;
   border-bottom : solid 1px #717171;
   background:linear-gradient(45deg,rgba(255,255,255,0.1),rgba(255,255,255,0.8),rgba(255,255,255,0.9)40%,rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgb(251,241,124),rgb(251,241,124),rgb(255,255,255),rgba(255,255,255,0.3));
   background-size: auto 100%;
+  margin:auto;
+  padding:10px 0;
+  margin-top:10px;
 }
 
 .pr_image{
+  margin:auto;
   margin-left:80px;
+  margin-right:50px;
   box-shadow: 10px 10px 15px -10px;
-
 }
 
 #shops_list{
   background-color: rgb(197,224,254);
 }
 
+.post_new{
+  margin-left:30%;
+  text-align: center;
+}
 
+.post_show{
+  width:80%;
+  margin-top: 50px;
+  border:solid 1px #b3b3b3;
+    border-top :solid 1px #e0e0e0;
+  border-bottom : solid 1px #717171;
+   margin:0 auto;
+}
+
+.user h2{
+  margin-top:10px;
+}
+
+.user{
+  width:100%;
+  margin:0 auto;
+  text-align:center;
+}
+
+.posts{
+ margin-top:-100px;
+  display: flex;
+  width:400px;
+  flex-direction: row;
+}
+
+.btn5{
+  margin-bottom:-200px;
+    padding-top:-200px;
+}
+.food_image{
+  display: flex;
+  width:100px;
+  margin: 5px 0px;
+  padding: 10px;
+}
+
+.food{
+  margin:0 auto;
+}
+
+.post_edit{
+  width:100%;
+  text-align:center;
+}
+
+.content{
+  width:80%;
+  margin-top: 50px;
+  margin:0 auto;
+  padding:50px 0;
+}
+
+#shop_shop{
+  background-color: rgb(197,224,254);
+}
+
+.shop_show{
+  padding-top:10px;
+  padding-left:10px;
+  background-color: white;
+}
 
