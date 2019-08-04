@@ -19,6 +19,8 @@
                 <%= link_to post do %>
                   <%= image_tag post.image.url %>
                 <% end %>
+              <% else %>
+                <h2>投稿がありません</h2>
               <% end %>
             </div><br>
           <% end %>

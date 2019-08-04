@@ -1,6 +1,11 @@
 <div class="row user">
   <div class = "post_show">
-    <h2><%= link_to @post.user.name ,user_path(@post.user) %></h2>
+    <div class="user_name">
+      <h2><%= link_to @post.user.name ,user_path(@post.user) %></h2>
+      <div class="button_like">
+        <%= render 'favorites/post_button', post: @post %>
+      </div>
+    </div>
     <div class="food">
       <% if @post.image? %>
         <%= link_to @shop do %>

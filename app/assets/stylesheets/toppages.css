@@ -102,6 +102,16 @@
   text-align: center;
 }
 
+.user_name{
+  display:flex;
+  margin-left: 150px;
+}
+
+.button_like{
+  padding-top:20px;
+  margin-left:300px;
+}
+
 .post_show{
   width:80%;
   margin-top: 50px;
@@ -121,17 +131,11 @@
   text-align:center;
 }
 
-.posts{
- margin-top:-100px;
-  display: flex;
-  width:400px;
-  flex-direction: row;
-}
-
 .btn5{
-  margin-bottom:-200px;
+
     padding-top:-200px;
 }
+
 .food_image{
   display: flex;
   width:100px;
@@ -159,9 +163,19 @@
   background-color: rgb(197,224,254);
 }
 
+
 .shop_show{
+  
   padding-top:10px;
   padding-left:10px;
   background-color: white;
 }
+
+.posts{
+ margin-top:-100px;
+  display: flex;
+  width:400px;
+  flex-direction: row;
+}
+
 

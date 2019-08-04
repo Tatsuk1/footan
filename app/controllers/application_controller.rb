@@ -54,6 +54,10 @@ require 'uri'
     end
   end
   
+  def counts(user)
+    @count_posts = user.posts.count
+    @count_favo_contents = user.favo_contents.count
+  end
 end
 
 
