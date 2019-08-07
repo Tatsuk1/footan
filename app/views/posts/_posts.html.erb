@@ -1,5 +1,5 @@
-<% if @user.posts.count > 0 %>
-  <%= @user.posts.each do |post| %>
+<% if posts.count > 0 %>
+  <% posts.each do |post| %>
     <div class="food">
       <% if post.image? %>
         <%= link_to post do %>

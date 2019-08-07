@@ -60,3 +60,5 @@ gem 'pry-byebug', group: :development
 
 gem 'carrierwave'
 gem 'rmagick'
+
+gem 'dotenv-rails'

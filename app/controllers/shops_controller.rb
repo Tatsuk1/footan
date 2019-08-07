@@ -19,7 +19,7 @@ before_action :shop_list
     parameters = {
     'id' => @shop.shop_code,
     'format' => 'json',
-    'keyid' => '11ca4c37d610e4a7ed0880bcfa8ff006'
+    'keyid' => ENV['GURUNAVI_API_KEY']
     }
 
     uri = URI(base_url + '?' + parameters.to_param)

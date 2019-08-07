@@ -13,19 +13,15 @@
       <%= link_to '投稿', new_shop_post_path(@shop.id) , class: "btn btn-primary btn-sm btn5" %>
       <div class "posts">
         <% if @shop.posts.count > 0 %>
-          <%= @shop.posts.each do |post| %>
+          <% @shop.posts.each do |post| %>
             <div class="food_image">
               <% if post.image? %>
                 <%= link_to post do %>
                   <%= image_tag post.image.url %>
                 <% end %>
-              <% else %>
-                <h2>投稿がありません</h2>
               <% end %>
             </div><br>
           <% end %>
-        <% else %>
-          <h2>投稿がありません</h2>
         <% end %>
       </div>
     </div>
