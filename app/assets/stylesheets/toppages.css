@@ -5,8 +5,8 @@
 
 #index, #new, #session{
   margin: 0;
-  padding: 0;
-  background: linear-gradient(to top, rgba(217, 175, 217, 0.5) 0%, rgba(151, 217, 225, 0.5) 100%),url(line_61429260988960.jpg);  /* 背景画像指定 */
+  padding: 0; 
+  background-image: url(line_61429260988960.jpg);
   background-size: cover;
 }
 
