@@ -3,6 +3,7 @@
     <div class="col-sm-4">
       店舗名：<%= link_to @shop.name, @shop.shop_url %>
       <br><br><%= image_tag @shop.image_url, alt: @shop.name + "写真" %>
+      <br><br><%= @shop.pr %>
       <br><br>住所: <%= @shop.address %>
       <br><br>電話番号: <%= @shop.tel %>
       <br><br>営業時間：<%= @shop.opentime %>
@@ -13,15 +14,22 @@
       <%= link_to '投稿', new_shop_post_path(@shop.id) , class: "btn btn-primary btn-sm btn5" %>
       <div class "posts">
         <% if @shop.posts.count > 0 %>
-          <% @shop.posts.each do |post| %>
-            <div class="food_image">
-              <% if post.image? %>
-                <%= link_to post do %>
-                  <%= image_tag post.image.url %>
+          <div class=" flex-container">
+            <% @shop.posts.each do |post| %>
+              <div class="food_image, flex-item">
+                <% if post.image? %>
+                  <%= link_to post do %>
+                    <%= image_tag post.image.url %>
+                  <% end %>
+                  <br><%= link_to post.user.name, user_path(post.user) %>
                 <% end %>
-              <% end %>
-            </div><br>
-          <% end %>
+              </div><br>
+            <% end %>
+          </div>
+        <% else %>
+          <div class="no_post">
+            <h2>投稿がありません</h2>
+          </div>    
         <% end %>
       </div>
     </div>

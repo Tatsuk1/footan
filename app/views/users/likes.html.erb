@@ -8,7 +8,7 @@
         <% if @user.image? %>
           <%= image_tag @user.image.url %>
         <% else %>
-          <%= image_tag("/images/icon/no-image.png") %>
+          <img class="mr-2 rounded" src="<%= gravatar_url(@user, {size: 200 }) %>" alt="" %>
         <% end %>
         </div>
         <br>

@@ -36,6 +36,7 @@ require 'uri'
           shop.latitude = rest['latitude']
           shop.longitude = rest['longitude']
           shop.shop_url = rest['url']
+          shop.pr = rest['pr']['pr_short']
           shop.image_url = rest['image_url']['shop_image1']
           shop.address = rest['address']
           shop.tel = rest['tel']
@@ -74,3 +75,4 @@ end
     # t.datetime "updated_at", null: false
     # t.string "freeword"
     # t.string "shop_code"
+    # t.string "pr"
