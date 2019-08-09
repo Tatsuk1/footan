@@ -12,7 +12,9 @@
         <% end %>
         </div>
         <br>
-        <%= link_to "画像を変更する", edit_user_path(@user), class: "btn btn-primary btn1" %>
+        <% if current_user == @user %>
+          <%= link_to "画像を変更する", edit_user_path(@user), class: "btn btn-primary btn1" %>
+        <% end %>
     </div>
 
     <div class="col-sm-8 offset-sm-1">

@@ -1,2 +1,6 @@
-<%= render 'posts/posts', posts: @posts %>
-<%= paginate @posts %>
+<% if @posts %>
+  <%= render 'posts/posts', posts: @posts %>
+  <%= paginate @posts %>
+<% else %>
+  <h2>投稿がありません</h2>
+<% end %>
