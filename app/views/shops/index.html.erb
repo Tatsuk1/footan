@@ -3,13 +3,25 @@
     <% if @shops&.any? %>
       <% @shops.each do |shop| %>
         <div class="shop">
-          <div class="pr_image">
-            <%= image_tag shop.image_url %>
-          </div>
+          <% if shop.image_url == '{}' %>
+            <div class ="nothing_image">
+              No image
+            </div>
+          <% else %>
+            <div class="pr_image">
+              <%= image_tag shop.image_url %>
+            </div>
+          <% end %>
+
           <div class="pr">
             <br>店舗名： <%= link_to shop.name, shops_path(shop_code: shop.shop_code), method: :post %>
             <br>住所： <%= shop.address %>
             <br><%= shop.pr %>
+            <% if !shop.pr? %>
+              <br>電話番号： <%= shop.tel%>
+              <br>営業時間： <%= simple_format(shop.opentime) %>
+              休み： <%= simple_format(shop.holiday) %>
+            <% end %>
           </div>
         </div>
       <% end %>

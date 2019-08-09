@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.order(id: :desc)
   end
 
   def new
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   
   def likes
     @user = User.find(params[:id])
-    @favo_contents = @user.favo_contents.page(params[:page])
+    @favo_contents = @user.favo_contents.order(id: :desc).page(params[:page])
     counts(@user)
   end
   

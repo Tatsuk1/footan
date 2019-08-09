@@ -2,7 +2,15 @@
   <div class ="nav shop_show">
     <div class="col-sm-4">
       店舗名：<%= link_to @shop.name, @shop.shop_url %>
-      <br><br><%= image_tag @shop.image_url, alt: @shop.name + "写真" %>
+     
+      <% if @shop.image_url == '{}' %>
+        <div class="no_image">
+          <p>No image</p>
+        </div>
+      <% else %>
+         <br><br> <%= image_tag @shop.image_url, alt: @shop.name + "写真" %>
+      <% end %>
+    
       <br><br><%= @shop.pr %>
       <br><br>住所: <%= @shop.address %>
       <br><br>電話番号: <%= @shop.tel %>

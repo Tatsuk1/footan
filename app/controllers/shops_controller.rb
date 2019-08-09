@@ -2,10 +2,12 @@ class ShopsController < ApplicationController
 before_action :shop_list
 
   def index
+    #binding.pry
     @shops = @rests
   end
 
   def show
+   # binding.pry
     @shop = Shop.find(params[:id])
   end
   

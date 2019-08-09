@@ -6,9 +6,9 @@
           <%= link_to post do %>
             <%= image_tag post.image.url %>
           <% end %>
-          <% if current_page?(likes_user_path(@user)) %>
+          <%# if current_page?(likes_user_path(@user)) %>
             <br><%= link_to post.user.name, user_path(post.user) %>
-          <% end %>
+          <%# end %>
         <% end %>
       </div><br>
     <% end %>

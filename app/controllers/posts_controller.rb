@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
-  before_action :require_user_logged_in
+  before_action :require_user_logged_in, except:[:index]
   before_action :correct_user, only: [:destroy]
+  
+  def index
+    @posts = Post.order(id: :desc).page(params[:page]).per(20)
+  end
+  
   def new
    @shop = Shop.find(params[:shop_id])
    @post = Post.new

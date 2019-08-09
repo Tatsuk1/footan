@@ -77,6 +77,16 @@
 
 }
 
+.nothing_image{
+
+  padding:10px 80px;
+  text-align:center;
+   border:solid 1px #b3b3b3;
+   margin:auto;
+  margin-left:100px;
+  margin-right:50px;
+}
+
 .shop{
   display:flex;
   border:solid 1px #b3b3b3;
@@ -169,7 +179,7 @@
 
 
 .shop_show{
-  
+  padding-bottom:10px;
   padding-top:10px;
   padding-left:10px;
   background-color: white;
@@ -214,3 +224,11 @@
   background-color: rgb(102,102,102);
   box-shadow: 0 3px 0 rgba(72,144,151, 1);
 }
+
+.no_image{
+  margin-top:10px;
+  padding:40px 0;
+  text-align:center;
+  border:solid 1px #b3b3b3;
+}
+
