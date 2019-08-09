@@ -28,23 +28,28 @@ require 'uri'
       @rests = []
       rests = response_data['rest']
       
-      rests.each do |rest|
-        shop = Shop.find_or_initialize_by(shop_code: rest['id'])
-        if !shop.id.present?
-          shop.shop_code = rest['id'] 
-          shop.name = rest['name']
-          shop.latitude = rest['latitude']
-          shop.longitude = rest['longitude']
-          shop.shop_url = rest['url']
-          shop.pr = rest['pr']['pr_short']
-          shop.image_url = rest['image_url']['shop_image1']
-          shop.address = rest['address']
-          shop.tel = rest['tel']
-          shop.opentime = rest['opentime']
-          shop.holiday = rest['holiday']
+      if rests
+        rests.each do |rest|
+          shop = Shop.find_or_initialize_by(shop_code: rest['id'])
+          if !shop.id.present?
+            shop.shop_code = rest['id'] 
+            shop.name = rest['name']
+            shop.latitude = rest['latitude']
+            shop.longitude = rest['longitude']
+            shop.shop_url = rest['url']
+           # shop.pr = rest['pr']['pr_short']
+            shop.image_url = rest['image_url']['shop_image1']
+            shop.address = rest['address']
+            shop.tel = rest['tel']
+            shop.opentime = rest['opentime']
+            shop.holiday = rest['holiday']
+          end
+          @rests << shop
+          # shop.save
         end
-        @rests << shop
-        # shop.save
+      else
+        flash.now[:danger]='条件を満たす店舗が見つかりませんでした'
+        render :index
       end
     end
   end

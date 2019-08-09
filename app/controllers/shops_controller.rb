@@ -3,7 +3,12 @@ before_action :shop_list
 
   def index
     #binding.pry
-    @shops = @rests
+    if @rests
+      @shops = @rests
+    else
+      flash.now[:danger]='条件を満たす店舗が見つかりませんでした'
+      render :index
+    end
   end
 
   def show
@@ -35,7 +40,7 @@ before_action :shop_list
     @shop.latitude = rest['latitude']
     @shop.longitude = rest['longitude']
     @shop.shop_url = rest['url']
-    @shop.pr = rest['pr']['pr_short']
+   # @shop.pr = rest['pr']['pr_short']
     @shop.image_url = rest['image_url']['shop_image1']
     @shop.address = rest['address']
     @shop.tel = rest['tel']
