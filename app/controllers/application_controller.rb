@@ -56,6 +56,7 @@ require 'uri'
   
   def require_user_logged_in
     unless logged_in?
+      flash[:warning] = "ログインして下さい。"
       redirect_to login_url
     end
   end

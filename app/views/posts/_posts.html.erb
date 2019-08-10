@@ -1,20 +1,21 @@
-<% if posts.count > 0 %>
-  <div class="flex-container">
+<div class="flex-container">
+  <% if posts.count > 0 %>
     <% posts.each do |post| %>
-      <div class="food, flex-item">
-        <% if post.image? %>
+      
+      <% if post.image? %>
+        <div class="food, flex-item">
           <%= link_to post do %>
             <%= image_tag post.image.url %>
           <% end %>
           <%# if current_page?(likes_user_path(@user)) %>
             <br><%= link_to post.user.name, user_path(post.user) %>
           <%# end %>
-        <% end %>
-      </div><br>
+        </div><br>
+      <% end %>
     <% end %>
-  </div>
-<% else %>
-  <div class="no_post">
-    <h2>投稿がありません</h2>
-  </div>
-<% end %>
+  <% else %>
+    <div class="no_post">
+      <h2>投稿がありません</h2>
+    </div>
+  <% end %>
+</div>
