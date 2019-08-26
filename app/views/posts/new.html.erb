@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <%= link_to '戻る', shop_path(@shop)%>
+  <%= link_to '戻る', shop_path(@shop), class: 'btn btn-success'%>
   <div class="row post_new">
     
     <%= form_with(model: [@shop,@post], local: true) do |f| %>
@@ -21,7 +21,7 @@
         <%= f.text_area :content , class:"form-control", rows: 3 %>
       </div>
       
-      <%= f.submit '投稿' , class: 'btn btn-primary btn-block' %>
+      <%= f.submit '投稿' , class: 'btn btn-primary post-button' %>
     <% end %>
   </div>
 <% else %>

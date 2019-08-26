@@ -1,6 +1,6 @@
 <body id = "session">
   <div class="login">
-    <div class="text-center">
+    <div class="text-center login-title">
       <h1>ログイン</h1>
     </div>
     
@@ -19,7 +19,7 @@
             <%= f.password_field :password, class: 'form-control' %>
           </div>
           
-          <%= f.submit 'ログイン', class: 'btn btn-primary btn-block' %>
+          <%= f.submit 'ログイン', class: 'btn btn-primary login-button' %>
         <% end %>
         
         <p>はじめての方はこちら <%= link_to 'サインイン', signup_path %></p>

@@ -1,14 +1,5 @@
 <body id = "index">
   <div class="text-center toppage">
-    <h1>ようこそFooTanへ</h1>
-    <h2>
-      キーワードを入力すると店舗の一覧・詳細を閲覧できます<br>
-      また、食事した店のメニューの投稿ができます  
-    </h2>
-    <ul>
-
-    </ul>
-
     <div id="nav-search">
       <div class="form-group">
         <%= form_tag '/shops', :method => 'get' do %>
@@ -19,5 +10,13 @@
         <% end %>
       </div>
     </div><!-- nav-search -->
+    
+    <div class = "toppage-coment">
+      <h1>ようこそFooTanへ</h1>
+      <h2>
+        キーワードを入力すると店舗の一覧・詳細を閲覧できます<br>
+        また、食事した店のメニューの投稿ができます  
+      </h2>
+    </div>
   </div>
 </body>

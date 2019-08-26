@@ -3,232 +3,507 @@
   padding:0;
 }
 
-#index, #new, #session{
-  margin: 0;
-  padding: 0; 
-  background-image: url(line_61429260988960.jpg);
-  background-size: cover;
-}
+@media screen and (min-width: 767px) { /*ウィンドウ幅が767px以上の場合に適用*/
 
-.toppage{
-  padding-top:10px;
-  padding-bottom:10px;
-  color: white;
-  background-color: rgba(150, 150, 150, 0.7);
-}
-
-
-
-.login{
-    padding-top: 20px;
+  #index, #new, #session{
+    margin: 0;
+    padding: 0; 
+    background-image: url(line_61429260988960.jpg);
+    background-size: cover;
+  }
+  
+  .toppage{
+    padding-top:10px;
+    padding-bottom:10px;
     color: white;
     background-color: rgba(150, 150, 150, 0.7);
-}
-
-.col-sm-6{
-    margin-top: 10px;
-    margin-left: 50px;
-    margin-bottom: 10px;
-}
-
-.signin{
-    padding-top: 20px;
-    color: white;
+  }
+  
+  
+  
+  .login{
+      padding-top: 20px;
+      color: white;
+      background-color: rgba(150, 150, 150, 0.7);
+  }
+  
+  .col-sm-6{
+      margin-top: 10px;
+      margin-left: 50px;
+      margin-bottom: 10px;
+  }
+  
+  .signin{
+      padding-top: 20px;
+      color: white;
+      background-color: rgba(150, 150, 150, 0.7);
+  }
+  
+  .navbar{
+    color: black;
     background-color: rgba(150, 150, 150, 0.7);
-}
-
-.navbar{
-  color: black;
-  background-color: rgba(150, 150, 150, 0.7);
-}
-
-#user_show{
-  background-color:#E0F0F0;
-}
-
-.user_information{
-  margin-top:-30px;
-  padding-top:20px;
-  padding-left:20px;
-  padding-bottom:20px;
-  background:white;
-}
-
-.no_post{
-  padding-top:30px;
-}
-
-.btn1{
-  margin-left:25px;
-}
-
-.image{
-  margin-left:-18px;
-  padding:5px;
-  border: 9px solid #00cc00;
-  border-Image:linear-gradient(25deg, white,pink);
-  border-image-slice:1;
-}
-
-.pr_image, 
-.pr{
-   display: inline-block;
-   vertical-align: middle;
-
-}
-
-.nothing_image{
-
-  padding:10px 80px;
-  text-align:center;
-   border:solid 1px #b3b3b3;
-   margin:auto;
-  margin-left:100px;
-  margin-right:50px;
-}
-
-.shop{
-  display:flex;
-  border:solid 1px #b3b3b3;
-  border-top :solid 1px #e0e0e0;
-  border-bottom : solid 1px #717171;
-  background:linear-gradient(45deg,rgba(255,255,255,0.1),rgba(255,255,255,0.8),rgba(255,255,255,0.9)40%,rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgb(251,241,124),rgb(251,241,124),rgb(255,255,255),rgba(255,255,255,0.3));
-  background-size: auto 100%;
-  margin:auto;
-  padding:10px 0;
-  margin-top:10px;
-}
-
-.pr_image{
-  margin:auto;
-  margin-left:80px;
-  margin-right:50px;
-  box-shadow: 10px 10px 15px -10px;
-}
-
-#shops_list{
-  background-color: rgb(197,224,254);
-}
-
-.post_new{
-  margin-left:30%;
-  text-align: center;
-}
-
-.user_name{
-  display:flex;
-  margin-left: 150px;
-}
-
-.button_like{
-  padding-top:20px;
-  margin-left:300px;
-}
-
-.post_show{
-  text-align:center;
-  margin-top: 50px;
-  border:solid 1px #b3b3b3;
+  }
+  
+  #user_show{
+    background-color:#E0F0F0;
+  }
+  
+  .user_information{
+    margin-top:-30px;
+    padding-top:20px;
+    padding-left:20px;
+    padding-bottom:20px;
+    background:white;
+  }
+  
+  .no_post{
+    padding-top:30px;
+  }
+  
+  .btn1{
+    margin-left:25px;
+  }
+  
+  .image{
+    margin-left:-18px;
+    padding:5px;
+    border: 9px solid #00cc00;
+    border-Image:linear-gradient(25deg, white,pink);
+    border-image-slice:1;
+  }
+  
+  .pr_image, 
+  .pr{
+    display: inline-block;
+    vertical-align: middle;
+  }
+  
+  .nothing_image{
+    padding:10px 80px;
+    text-align:center;
+    border:solid 1px #b3b3b3;
+    margin:auto;
+    margin-left:100px;
+    margin-right:50px;
+  }
+  
+  .shop{
+    display:flex;
+    border:solid 1px #b3b3b3;
     border-top :solid 1px #e0e0e0;
-  border-bottom : solid 1px #717171;
-   margin:0 auto;
-  background-color:white;
-}
-
-.user h2{
-  margin-top:10px;
-}
-
-.user{
-  width:100%;
-  margin:0 auto;
-  text-align:center;
-}
-
-.btn5{
-
+    border-bottom : solid 1px #717171;
+    background:linear-gradient(45deg,rgba(255,255,255,0.1),rgba(255,255,255,0.8),rgba(255,255,255,0.9)40%,rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgb(251,241,124),rgb(251,241,124),rgb(255,255,255),rgba(255,255,255,0.3));
+    background-size: auto 100%;
+    margin:auto;
+    padding:10px 0;
+    margin-top:10px;
+  }
+  
+  .pr_image{
+    margin:auto;
+    margin-left:80px;
+    margin-right:50px;
+    box-shadow: 10px 10px 15px -10px;
+  }
+  
+  #shops_list{
+    background-color: rgb(197,224,254);
+  }
+  
+  .post_new{
+    margin-left:30%;
+    text-align: center;
+  }
+  
+  .user_name{
+    display:flex;
+    margin-left: 150px;
+  }
+  
+  .button_like{
+    padding-top:20px;
+    margin-left:300px;
+  }
+  
+  .post_show{
+    text-align:center;
+    margin-top: 50px;
+    border:solid 1px #b3b3b3;
+    border-top :solid 1px #e0e0e0;
+    border-bottom : solid 1px #717171;
+    margin:0 auto;
+    background-color:white;
+  }
+  
+  .user h2{
+    margin-top:10px;
+  }
+  
+  .user{
+    width:100%;
+    margin:0 auto;
+    text-align:center;
+  }
+  
+  .btn5{
     padding-top:-200px;
+  }
+  
+  .food_image{
+    display: flex;
+    width:100px;
+    margin: 5px 0px;
+    padding: 10px;
+  }
+  
+  .food{
+    margin:0 auto;
+  }
+  
+  .post_edit{
+    width:100%;
+    text-align:center;
+  }
+  
+  .content{
+    width:80%;
+    margin-top: 50px;
+    margin:0 auto;
+    padding:50px 0;
+  }
+  
+  #shop_shop{
+    background-color: rgb(197,224,254);
+  }
+  
+  
+  .shop_show{
+    padding-bottom:10px;
+    padding-top:10px;
+    padding-left:10px;
+    background-color: white;
+  }
+  
+  .posts{
+   margin-top:-100px;
+    display: flex;
+    width:400px;
+    flex-direction: row;
+  }
+  
+  .flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  
+  }
+  
+  .flex-item {
+    text-align:center;
+    margin-right:20px;
+    margin-bottom:20px;
+    padding:5px;
+    border:solid 1px pink;
+  }
+  
+  .flex-item:hover{
+    box-shadow: 0 1px 9px rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+    background-color: rgb(126,197,204);
+  }
+  
+  #post_post{
+    background-color: rgb(197,224,254);
+  }
+  
+  .navbar-brand:hover{
+    position: relative;
+    top: -1px;
+    background-color: rgb(102,102,102);
+    box-shadow: 0 3px 0 rgba(72,144,151, 1);
+  }
+  
+  .no_image{
+    margin-top:10px;
+    padding:40px 0;
+    text-align:center;
+    border:solid 1px #b3b3b3;
+  }
 }
 
-.food_image{
-  display: flex;
-  width:100px;
-  margin: 5px 0px;
-  padding: 10px;
+@media screen and (max-width: 479px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
+    
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+  }
+
+  h1 {
+    font-size: 2em;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.7em;
+  }
+  
+  .navbar-brand:hover{
+    position: relative;
+    top: -1px;
+    background-color: rgb(102,102,102);
+    box-shadow: 0 3px 0 rgba(72,144,151, 1);
+  }
+  
+  #index, #new, #session{
+    max-width:1000px;
+    width: 100%;
+    margin-left:auto;
+    margin-right: auto;
+    background:linear-gradient(-45deg, pink, lightblue) fixed, url(line_61429260988960.jpg) fixed;
+    background-size:100%;
+    background-position:bottom;
+    background-repeat: no-repeat;
+    
+  }
+  
+  .toppage{
+    margin-top:50px;
+    padding-top:30px;
+    padding-bottom:10px;
+    color: white;
+    background-color: rgba(150, 150, 150, 0.6);
+  }
+  
+  .signin{
+    margin-top:-20px;
+    padding-top: 20px;
+    color: white;
+    background-color: rgba(150, 150, 150, 0.6);
+    text-align:center;
+  }
+  
+  .signin-title{
+    margin-bottom:-20px;
+  }
+  
+  .signin-title h1{
+    width:200px;
+    margin:0 auto;
+    margin-bottom:30px;
+    padding-bottom:10px;
+    border-bottom:solid 1px #717171;
+  }
+  
+  .form-group{
+    margin:auto;
+    width:80%;
+  }
+  
+  .signin-button{
+    margin-top:10px;
+    margin-bottom:10px;
+    width:80%;
+  }
+  
+  .login{
+    padding-top: 20px;
+    color: white;
+    background-color: rgba(150, 150, 150, 0.6);
+    text-align:center;
+  }
+  
+  .login-title{
+    margin-bottom:-20px;
+  }
+  
+  .login-title h1{
+    width:200px;
+    margin:0 auto;
+    margin-bottom:30px;
+    padding-bottom:10px;
+    border-bottom:solid 1px #717171;
+  }
+  
+  .login-button{
+    margin-top:10px;
+    margin-bottom:10px;
+    width:80%;
+  }
+  
+  .user_information{
+    margin-top:-30px;
+    padding-top:20px;
+    padding-left:20px;
+    padding-bottom:20px;
+    background:white;
+    text-align:center;
+  }
+  
+  .user_information h2{
+    font-size:1.5em;
+  }
+  
+  .image{
+    width:200px;
+    margin:auto;
+    padding:5px;
+    border: 9px solid #00cc00;
+    border-Image:linear-gradient(25deg, white,pink);
+    border-image-slice:1;
+  }
+  
+  .btn1{
+    margin-bottom:20px;
+  }
+  
+  .posts{
+    display: flex;
+    width:400px;
+    flex-direction: row;
+  }
+  
+  .flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  
+  }
+  
+  .flex-item {
+    text-align:center;
+    margin-right:20px;
+    margin-bottom:20px;
+    padding:5px;
+    border:solid 1px pink;
+  }
+  
+  #shops_list{
+    background-color: rgb(197,224,254);
+  }
+  
+  .shops{
+    margin-right:auto;
+    margin-left:auto;
+  }
+
+  .pr_image{
+    margin:auto;
+    text-align:center;
+  }  
+  
+  .shop{
+    width:360px;
+    border:solid 1px #b3b3b3;
+    border-top :solid 1px #e0e0e0;
+    border-bottom : solid 1px #717171;
+    background:linear-gradient(45deg,rgba(255,255,255,0.1),rgba(255,255,255,0.8),rgba(255,255,255,0.9)40%,rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgba(255,255,255,0.8),rgb(251,241,124),rgb(251,241,124),rgb(255,255,255),rgba(255,255,255,0.3));
+    background-size: auto 100%;
+    padding:10px 10px;
+    margin-top:10px;
+  }
+  
+  .shop_show{
+    text-align:center;
+  }
+  
+  .shop-rest{
+    margin:10px 0;
+    border-bottom: solid 1px #717171;
+    text-align:center;
+  }
+  
+  .btn5{
+    margin-left: 80%;
+    margin-bottom:20px;
+  }
+  
+  .post_new{
+    margin-top:-10px;
+    margin-left:10px;
+    text-align: center;
+  }
+  
+  .post-button{
+    width:80%;
+    margin-top:20px;
+  }
+  
+  .post_show{
+    margin-top: 50px;
+    border:solid 1px #b3b3b3;
+    border-top :solid 1px #e0e0e0;
+    border-bottom : solid 1px #717171;
+    margin:0 auto;
+    padding:0 50px;
+    background-color:white;
+    text-align:center;
+  }
+  
+  .user h2{
+    margin-top:20px;
+  }
+  
+  .user_name{
+    display:flex;
+  }
+  .button_like{
+    padding-top:20px;
+    margin-left:70%;
+  }
+  
+  .post_edit{
+    width:100%;
+    text-align:center;
+  }
+  
+  .content{
+    width:80%;
+    margin:0 auto;
+  }
+  
+  .edit-button { 
+    margin-top:10px;
+    width:80%;
+  }
+  
+  .flex-item:hover{
+    box-shadow: 0 1px 9px rgba(0,0,0,0.3);
+    letter-spacing: 2px;
+    background-color: rgb(126,197,204);
+  }
+  
+  #post_post{
+    background-color: rgb(197,224,254);
+  }
+  
+  .no_image{
+    margin-top:10px;
+    padding:40px 0;
+    text-align:center;
+    border:solid 1px #b3b3b3;
+  }
+  
+  .nothing_image{
+    width:100px;
+    text-align:center;
+    margin:auto;
+    padding:10px;
+    border:solid 1px #b3b3b3;
+  }
+  
+  .no_post{
+    margin-left:-50px;
+  }
 }
-
-.food{
-  margin:0 auto;
-}
-
-.post_edit{
-  width:100%;
-  text-align:center;
-}
-
-.content{
-  width:80%;
-  margin-top: 50px;
-  margin:0 auto;
-  padding:50px 0;
-}
-
-#shop_shop{
-  background-color: rgb(197,224,254);
-}
-
-
-.shop_show{
-  padding-bottom:10px;
-  padding-top:10px;
-  padding-left:10px;
-  background-color: white;
-}
-
-.posts{
- margin-top:-100px;
-  display: flex;
-  width:400px;
-  flex-direction: row;
-}
-
-.flex-container{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-
-}
-
-.flex-item {
-  text-align:center;
-  margin-right:20px;
-  margin-bottom:20px;
-  padding:5px;
-  border:solid 1px pink;
-}
-
-.flex-item:hover{
-  box-shadow: 0 1px 9px rgba(0,0,0,0.3);
-  letter-spacing: 2px;
-  background-color: rgb(126,197,204);
-}
-
-#post_post{
-  background-color: rgb(197,224,254);
-}
-
-.navbar-brand:hover{
-  position: relative;
-  top: -1px;
-  background-color: rgb(102,102,102);
-  box-shadow: 0 3px 0 rgba(72,144,151, 1);
-}
-
-.no_image{
-  margin-top:10px;
-  padding:40px 0;
-  text-align:center;
-  border:solid 1px #b3b3b3;
-}
-
