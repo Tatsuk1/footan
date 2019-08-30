@@ -19,6 +19,11 @@
             <%= f.password_field :password, class: 'form-control' %>
           </div>
           
+          <%= f.label :remember_me, class: "checkbox include" do %>
+            <%= f.check_box :remember_me %>
+            <span>ログインを維持し続けますか？</span>
+          <% end %>
+          
           <%= f.submit 'ログイン', class: 'btn btn-primary login-button' %>
         <% end %>
         

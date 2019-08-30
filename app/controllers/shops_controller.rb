@@ -14,6 +14,7 @@ before_action :shop_list
   def show
    # binding.pry
     @shop = Shop.find(params[:id])
+    @posts = @shop.posts.order(id: :desc)
   end
   
   def create

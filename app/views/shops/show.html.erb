@@ -20,24 +20,7 @@
     <div class="col-sm-6 offset-2">
       <%= link_to '投稿', new_shop_post_path(@shop.id) , class: "btn btn-primary btn-sm btn5" %>
       <div class "posts">
-        <% if @shop.posts.count > 0 %>
-          <div class=" flex-container">
-            <% @shop.posts.each do |post| %>
-              <div class="food_image, flex-item">
-                <% if post.image? %>
-                  <%= link_to post do %>
-                    <%= image_tag post.image.url %>
-                  <% end %>
-                  <br><%= link_to post.user.name, user_path(post.user) %>
-                <% end %>
-              </div><br>
-            <% end %>
-          </div>
-        <% else %>
-          <div class="no_post">
-            <h2>投稿がありません</h2>
-          </div>    
-        <% end %>
+        <%= render 'posts/posts', posts: @posts %>
       </div>
     </div>
   </div>
