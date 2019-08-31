@@ -47,7 +47,6 @@ require 'uri'
             shop.budget = rest['budget']
           end
           @rests << shop
-          # shop.save
         end
       else
         flash.now[:danger]='条件を満たす店舗が見つかりませんでした'

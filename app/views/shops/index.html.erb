@@ -15,7 +15,7 @@
               </div>
             <% end %>
   
-            <div class="pr">
+            <div class="shop_pr">
               <br>店舗名： <%= link_to shop.name, shops_path(shop_code: shop.shop_code), method: :post %>
               <br><%= shop.pr %>
               <br>営業時間： <%= simple_format(shop.opentime) %>
