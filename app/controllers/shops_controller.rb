@@ -4,7 +4,7 @@ before_action :shop_list
   def index
     #binding.pry
     if @rests
-      @shops = @rests
+      @shops = Kaminari.paginate_array(@rests).page(params[:page]).per(10)
     else
       flash.now[:danger]='条件を満たす店舗が見つかりませんでした'
       render :index
@@ -27,6 +27,7 @@ before_action :shop_list
     parameters = {
     'id' => @shop.shop_code,
     'format' => 'json',
+    'hit_per_page' => 50,
     'keyid' => ENV['GURUNAVI_API_KEY']
     }
 
@@ -41,12 +42,13 @@ before_action :shop_list
     @shop.latitude = rest['latitude']
     @shop.longitude = rest['longitude']
     @shop.shop_url = rest['url']
-   # @shop.pr = rest['pr']['pr_short']
+    @shop.pr = rest['pr']['pr_short']
     @shop.image_url = rest['image_url']['shop_image1']
     @shop.address = rest['address']
     @shop.tel = rest['tel']
     @shop.opentime = rest['opentime']
     @shop.holiday = rest['holiday']
+    @shop.budget = rest['budget']
     
     if @shop.save
       redirect_to @shop

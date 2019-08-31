@@ -63,6 +63,9 @@ gem 'rmagick'
 
 gem 'dotenv-rails'
 
+gem 'will_paginate',           '3.1.6'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 group :production do
   gem 'pg', '>= 0.18', '<2.0'
 end

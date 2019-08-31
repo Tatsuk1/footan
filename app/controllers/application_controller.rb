@@ -16,6 +16,7 @@ require 'uri'
       parameters = {
       'freeword' => freeword,
       'format' => 'json',
+      'hit_per_page' => 50,
       'keyid' => ENV['GURUNAVI_API_KEY']
       }
       
@@ -37,12 +38,13 @@ require 'uri'
             shop.latitude = rest['latitude']
             shop.longitude = rest['longitude']
             shop.shop_url = rest['url']
-           # shop.pr = rest['pr']['pr_short']
+            shop.pr = rest['pr']['pr_short']
             shop.image_url = rest['image_url']['shop_image1']
             shop.address = rest['address']
             shop.tel = rest['tel']
             shop.opentime = rest['opentime']
             shop.holiday = rest['holiday']
+            shop.budget = rest['budget']
           end
           @rests << shop
           # shop.save

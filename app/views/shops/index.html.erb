@@ -2,6 +2,7 @@
   <div class="shops row">
     <div class="col-sm-10 offset-1">
       <% if @shops&.any? %>
+      <%= paginate @shops %>
         <% @shops.each do |shop| %>
           <div class="shop">
             <% if shop.image_url == '{}' %>
@@ -16,13 +17,14 @@
   
             <div class="pr">
               <br>店舗名： <%= link_to shop.name, shops_path(shop_code: shop.shop_code), method: :post %>
-              <br>住所： <%= shop.address %>
-              <br>電話番号： <%= shop.tel%>
+              <br><%= shop.pr %>
               <br>営業時間： <%= simple_format(shop.opentime) %>
               休み： <%= simple_format(shop.holiday) %>
+              平均予算： <%= shop.budget %>円
             </div>
           </div>
         <% end %>
+        <%= paginate @shops %>
       <% end %>
     </div>
   </div>
