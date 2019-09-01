@@ -11,10 +11,12 @@ require 'uri'
     if params[:search].present?
     
       base_url='https://api.gnavi.co.jp/RestSearchAPI/v3'
-      p freeword = params[:search]
       
       parameters = {
-      'freeword' => freeword,
+      'freeword' => params[:search],
+      'wifi' => params[:wifi],
+      'outret' => params[:outret],
+      'takeout' => params[:takeout],
       'format' => 'json',
       'hit_per_page' => 50,
       'keyid' => ENV['GURUNAVI_API_KEY']
@@ -45,6 +47,10 @@ require 'uri'
             shop.opentime = rest['opentime']
             shop.holiday = rest['holiday']
             shop.budget = rest['budget']
+            shop.line = rest['access']['line']
+            shop.station = rest['access']['station']
+            shop.station_exit = rest['access']['station_exit']
+            shop.walk = rest['access']['walk']
           end
           @rests << shop
         end
@@ -68,7 +74,7 @@ require 'uri'
   end
 end
 
-
+# shop_data
     # t.string "name"
     # t.decimal "latitude", precision: 10, scale: 7
     # t.decimal "longitude", precision: 10, scale: 7
@@ -83,3 +89,5 @@ end
     # t.string "freeword"
     # t.string "shop_code"
     # t.string "pr"
+    
+# for shukatsu

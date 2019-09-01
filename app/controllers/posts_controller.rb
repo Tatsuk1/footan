@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :correct_user, only: [:destroy]
   
   def index
-    @posts = current_user.posts.order(id: :desc).paginate(params[:page]).per(20)
+    @posts = Post.order(id: :desc)
   end
   
   def new

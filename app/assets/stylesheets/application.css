@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+ @media screen and (max-width: 479px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
+  
+  .pagination {
+    width:200px;
+    justify-content: center;
+  }
+}

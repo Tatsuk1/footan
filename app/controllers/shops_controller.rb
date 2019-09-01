@@ -2,7 +2,6 @@ class ShopsController < ApplicationController
 before_action :shop_list
 
   def index
-    #binding.pry
     if @rests
       @shops = Kaminari.paginate_array(@rests).page(params[:page]).per(10)
     else
@@ -49,6 +48,10 @@ before_action :shop_list
     @shop.opentime = rest['opentime']
     @shop.holiday = rest['holiday']
     @shop.budget = rest['budget']
+    @shop.line = rest['access']['line']
+    @shop.station = rest['access']['station']
+    @shop.station_exit = rest['access']['station_exit']
+    @shop.walk = rest['access']['walk']
     
     if @shop.save
       redirect_to @shop

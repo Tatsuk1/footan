@@ -18,13 +18,21 @@
             <div class="shop_pr">
               <br>店舗名： <%= link_to shop.name, shops_path(shop_code: shop.shop_code), method: :post %>
               <br><%= shop.pr %>
+              <br><%= shop.line %><%= shop.station %>
+              <% if !shop.station_exit = '{}' %>
+                <%= shop.station_exit %>
+              <% end %>
+              徒歩<%= shop.walk %>分
+              
               <br>営業時間： <%= simple_format(shop.opentime) %>
               休み： <%= simple_format(shop.holiday) %>
               平均予算： <%= shop.budget %>円
             </div>
           </div>
         <% end %>
-        <%= paginate @shops %>
+        <div class="pagination">
+          <%= paginate @shops %>
+        </div>
       <% end %>
     </div>
   </div>

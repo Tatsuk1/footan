@@ -7,16 +7,31 @@
             <%= text_field_tag :search, params[:search] %>
             <%= submit_tag "検索", :freeword => nil, class: "btn btn-primary" %>
           </p>
+          
+          <%= label_tag :wifi, class: "checkbox inline" do %>
+            <%= check_box_tag :wifi %>
+            <span>WiFiあり</span>
+          <% end %>
+          
+          <%= label_tag :outret, class: "checkbox inline" do %>
+            <%= check_box_tag :outret %>
+            <span>電源あり</span>
+          <% end %>
+          
+          <%= label_tag :takeout, class: "checkbox inline" do %>
+            <%= check_box_tag :takeout %>
+            <span>テイクアウト可</span>
+          <% end %>
         <% end %>
       </div>
     </div><!-- nav-search -->
     
     <div class = "toppage-coment">
       <h1>ようこそFooTanへ</h1>
-      <h2>
-        キーワードを入力すると店舗の一覧・詳細を閲覧できます<br>
-        また、食事した店のメニューの投稿ができます  
-      </h2>
+      <h3>
+        駅名や食べ物の種類を入力すると店舗の一覧・詳細を閲覧できます<br>
+        また「焼肉,銀座」とカンマを用いるとより絞れます<br>
+        最後に美味しかった料理などを投稿してそのお店の情報を共有できます
     </div>
   </div>
 </body>

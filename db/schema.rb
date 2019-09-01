@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_122638) do
+ActiveRecord::Schema.define(version: 2019_09_01_115459) do
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 2019_08_30_122638) do
     t.string "shop_code"
     t.string "pr"
     t.integer "budget"
+    t.integer "wifi"
+    t.integer "outret"
+    t.integer "takeout"
+    t.string "line"
+    t.string "station"
+    t.string "station_exit"
+    t.integer "walk"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
