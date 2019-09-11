@@ -25,7 +25,6 @@ before_action :shop_list
       
     parameters = {
     'id' => @shop.shop_code,
-    'format' => 'json',
     'hit_per_page' => 50,
     'keyid' => ENV['GURUNAVI_API_KEY']
     }

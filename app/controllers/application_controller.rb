@@ -13,13 +13,12 @@ require 'uri'
       base_url='https://api.gnavi.co.jp/RestSearchAPI/v3'
       
       parameters = {
+      'keyid' => ENV['GURUNAVI_API_KEY'],
       'freeword' => params[:search],
       'wifi' => params[:wifi],
       'outret' => params[:outret],
       'takeout' => params[:takeout],
-      'format' => 'json',
       'hit_per_page' => 50,
-      'keyid' => ENV['GURUNAVI_API_KEY']
       }
       
       p uri = URI(base_url + '?' + parameters.to_param)
