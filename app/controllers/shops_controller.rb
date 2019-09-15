@@ -33,25 +33,29 @@ before_action :shop_list
 
     response_json = Net::HTTP.get(uri)
 
-    p rest = JSON.parse(response_json)['rest']
-        
-    @shop.shop_code = rest['id'] 
-    @shop.name = rest['name']
-    @shop.latitude = rest['latitude']
-    @shop.longitude = rest['longitude']
-    @shop.shop_url = rest['url']
-    @shop.pr = rest['pr']['pr_short']
-    @shop.image_url = rest['image_url']['shop_image1']
-    @shop.address = rest['address']
-    @shop.tel = rest['tel']
-    @shop.opentime = rest['opentime']
-    @shop.holiday = rest['holiday']
-    @shop.budget = rest['budget']
-    @shop.line = rest['access']['line']
-    @shop.station = rest['access']['station']
-    @shop.station_exit = rest['access']['station_exit']
-    @shop.walk = rest['access']['walk']
+    p response_data = JSON.parse(response_json)
+      
+    rests = response_data['rest']
     
+    rests.each do |rest|    
+      @shop.shop_code = rest['id'] 
+      @shop.name = rest['name']
+      @shop.latitude = rest['latitude']
+      @shop.longitude = rest['longitude']
+      @shop.shop_url = rest['url']
+      @shop.pr = rest['pr']['pr_short']
+      @shop.image_url = rest['image_url']['shop_image1']
+      @shop.address = rest['address']
+      @shop.tel = rest['tel']
+      @shop.opentime = rest['opentime']
+      @shop.holiday = rest['holiday']
+      @shop.budget = rest['budget']
+      @shop.line = rest['access']['line']
+      @shop.station = rest['access']['station']
+      @shop.station_exit = rest['access']['station_exit']
+      @shop.walk = rest['access']['walk']
+    end
+  
     if @shop.save
       redirect_to @shop
     else
