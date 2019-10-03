@@ -1,6 +1,10 @@
-<% if !@posts %>
-  <h2>投稿がありません</h2>
-<% else %>
-  <%= render 'posts/posts', posts: @posts %>
-  <%#= paginate @posts %>
-<% end %>
+<div class="row">
+  <div class="col-10 offset-2">
+    <% if !@posts %>
+      <h2>投稿がありません</h2>
+    <% else %>
+      <%= render 'posts/posts', posts: @posts %>
+      <%#= paginate @posts %>
+    <% end %>
+  </div>
+</div>

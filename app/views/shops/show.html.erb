@@ -8,7 +8,9 @@
           <p>No image</p>
         </div>
       <% else %>
-         <br><br> <%= image_tag @shop.image_url, alt: @shop.name + "写真" %>
+        <div class="shop-topimage">
+          <br><br> <%= image_tag @shop.image_url, alt: @shop.name + "写真" %>
+        </div>
       <% end %>
     
       <br><br>住所: <%= @shop.address %>

@@ -18,7 +18,7 @@ require 'uri'
       'wifi' => params[:wifi],
       'outret' => params[:outret],
       'takeout' => params[:takeout],
-      'hit_per_page' => 50,
+      'hit_per_page' => 36,
       }
       
       p uri = URI(base_url + '?' + parameters.to_param)
@@ -50,6 +50,7 @@ require 'uri'
             shop.station = rest['access']['station']
             shop.station_exit = rest['access']['station_exit']
             shop.walk = rest['access']['walk']
+            shop.category_name_l = rest['code']['category_name_l']
           end
           @rests << shop
         end

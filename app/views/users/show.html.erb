@@ -4,7 +4,7 @@
       <div class="name">
         <h2><%= @user.name %></h2>
       </div>
-      <div class="image ">
+      <div class="image">
         <% if @user.image? %>
           <%= image_tag @user.image.url %>
         <% else %>
@@ -17,7 +17,7 @@
         <% end %>
     </div>
 
-    <div class="col-sm-8 offset-sm-1">
+    <div class="col-sm-8 offset-sm-1 ">
       <ul class="nav nav-tabs nav-justified mb-1">
         <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">投稿 <span class="badge badge-secondary"><%= @count_posts %></span></a></li>
         <li class="nav-item"><a href="<%= likes_user_path(@user) %>" class="nav-link <%= 'active' if current_page?(likes_user_path(@user)) %>">いいね  <span class="badge badge-secondary"><%= @count_favo_contents %></span></a></li>

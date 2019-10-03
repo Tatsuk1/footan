@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   end
   
   def likes
-    @favo_contents = @user.favo_contents.order(id: :desc).page(params[:page])
+    @posts = @user.favo_contents.order(id: :desc)
     counts(@user)
   end
   

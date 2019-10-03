@@ -1,39 +1,73 @@
 <body id = shops_list>
-  <div class="shops row">
-    <div class="col-sm-10 offset-1">
-      <% if @shops&.any? %>
+  <% if @shops&.any? %>
+    <div class="pagination">
       <%= paginate @shops %>
-        <% @shops.each do |shop| %>
-          <div class="shop">
+    </div>
+    <div id ="shops">
+      <section class="shop search-header">
+        <div id="nav-search">
+          <div class="form-group">
+            <%= form_tag '/shops', :method => 'get' do %>
+              <p>
+                <%= text_field_tag :search, params[:search] %>
+                <%= submit_tag "検索", :freeword => nil, class: "btn btn-primary" %>
+              </p>
+              
+              <%= label_tag :wifi, class: "checkbox inline" do %>
+                <%= check_box_tag :wifi %>
+                <span>WiFiあり</span>
+              <% end %>
+              <br>
+              <%= label_tag :outret, class: "checkbox inline" do %>
+                <%= check_box_tag :outret %>
+                <span>電源あり</span>
+              <% end %>
+              <br>
+              <%= label_tag :takeout, class: "checkbox inline" do %>
+                <%= check_box_tag :takeout %>
+                <span>テイクアウト可</span>
+              <% end %>
+            <% end %>
+          </div>
+        </div><!-- nav-search -->
+      </section>
+      <% @shops.each do |shop| %>
+        <section class="shop">
+          <%= link_to  shops_path(shop_code: shop.shop_code), method: :post do %>
             <% if shop.image_url == '{}' %>
               <div class ="nothing_image">
                 No image
               </div>
             <% else %>
-              <div class="pr_image">
+              <div class="pr-image">
                 <%= image_tag shop.image_url %>
               </div>
             <% end %>
-  
-            <div class="shop_pr">
-              <br>店舗名： <%= link_to shop.name, shops_path(shop_code: shop.shop_code), method: :post %>
-              <br><%= shop.pr %>
-              <br><%= shop.line %><%= shop.station %>
-              <% if !shop.station_exit = '{}' %>
-                <%= shop.station_exit %>
-              <% end %>
-              徒歩<%= shop.walk %>分
-              
-              <br>営業時間： <%= simple_format(shop.opentime) %>
-              休み： <%= simple_format(shop.holiday) %>
-              平均予算： <%= shop.budget %>円
-            </div>
+         
+          
+          <div class="shop-title">
+            <%= shop.name %>
           </div>
-        <% end %>
-        <div class="pagination">
-          <%= paginate @shops %>
-        </div>
+          
+          <p class="shop-pr">
+            <%= shop.category_name_l %><br><br>
+            <%= shop.address %><br><br>
+            平均予算： <%= shop.budget %>円
+          </p>
+           <% end %>
+        </section>
       <% end %>
     </div>
-  </div>
+
+  <% end %>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.0/masonry.pkgd.js"></script>
+  <script>
+    window.onload = function() {
+      new Masonry('body', {
+        itemSelector: '.shop',
+        gutter: 4
+      });
+    };
+  </script>
 </body>

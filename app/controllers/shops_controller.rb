@@ -3,7 +3,7 @@ before_action :shop_list
 
   def index
     if @rests
-      @shops = Kaminari.paginate_array(@rests).page(params[:page]).per(10)
+      @shops = Kaminari.paginate_array(@rests).page(params[:page]).per(12)
     else
       flash.now[:danger]='条件を満たす店舗が見つかりませんでした'
       render :index
