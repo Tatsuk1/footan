@@ -12,7 +12,8 @@
           <br><br> <%= image_tag @shop.image_url, alt: @shop.name + "写真" %>
         </div>
       <% end %>
-    
+      <%= render "favorite_shops/favorite_shops", shop: @shop %>
+      <br><%= @shop.pr %>
       <br><br>住所: <%= @shop.address %>
       <br><br>電話番号: <%= @shop.tel %>
       <br><br>営業時間：<%= @shop.opentime %>

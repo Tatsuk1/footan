@@ -64,6 +64,7 @@ require 'uri'
   def require_user_logged_in
     unless logged_in?
       flash[:warning] = "ログインして下さい。"
+      store_location
       redirect_to login_url
     end
   end
@@ -71,6 +72,7 @@ require 'uri'
   def counts(user)
     @count_posts = user.posts.count
     @count_favo_contents = user.favo_contents.count
+    @count_favo_shops = user.favo_shops.count
   end
 end
 

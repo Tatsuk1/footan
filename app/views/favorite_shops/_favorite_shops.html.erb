@@ -1,0 +1,11 @@
+<% if current_user.favo_shop?(@shop) %>
+  <%= form_with(model: current_user.favorite_shops.find_by(shop_id: @shop.id), local: true, method: :delete, remote: true) do|f| %>
+    <%= hidden_field_tag :shop_id, @shop.id %>
+    <%= f.submit 'お気に入り解除', class: 'btn btn-danger btn-sm' %>
+  <% end %>
+<% else %>
+    <%= form_with(model: current_user.favorite_shops.build, local: true, remote: true) do |f| %>
+      <%= hidden_field_tag :shop_id, @shop.id %>
+      <%= f.submit 'お気に入り', class: 'btn btn-primary btn-sm' %>
+    <% end %>
+<% end %>

@@ -1,0 +1,26 @@
+  <% shops.each do |shop| %>
+    <section class="shop">
+      <%= link_to  shops_path(shop_code: shop.shop_code), method: :post do %>
+        <% if shop.image_url == '{}' %>
+          <div class ="nothing_image">
+            No image
+          </div>
+        <% else %>
+          <div class="pr-image">
+            <%= image_tag shop.image_url %>
+          </div>
+        <% end %>
+     
+      
+      <div class="shop-title">
+        <%= shop.name %>
+      </div>
+      
+      <p class="shop-pr">
+        <%= shop.category_name_l %><br><br>
+        <%= shop.address %><br><br>
+        平均予算： <%= shop.budget %>円
+      </p>
+       <% end %>
+    </section>
+  <% end %>

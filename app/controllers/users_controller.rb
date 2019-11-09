@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show]
   before_action :correct_user, only: [:edit, :update]
-  before_action :set_user, only: [:show, :edit, :update, :likes]
+  before_action :set_user, only: [:show, :edit, :update, :likes, :like_shops]
    
   def index
   end
@@ -41,6 +41,11 @@ class UsersController < ApplicationController
   
   def likes
     @posts = @user.favo_contents.order(id: :desc)
+    counts(@user)
+  end
+  
+  def like_shops
+    @shops = @user.favo_shops.order(id: :desc)
     counts(@user)
   end
   

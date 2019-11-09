@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
 before_action :shop_list
-
+before_action :require_user_logged_in, only:[:show]
   def index
     if @rests
       @shops = Kaminari.paginate_array(@rests).page(params[:page]).per(12)
@@ -11,7 +11,7 @@ before_action :shop_list
   end
 
   def show
-   # binding.pry
+    #binding.pry
     @shop = Shop.find(params[:id])
     @posts = @shop.posts.order(id: :desc)
   end

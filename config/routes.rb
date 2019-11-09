@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :likes
+      get :like_shops
     end
   end    
   
@@ -17,5 +18,5 @@ Rails.application.routes.draw do
   end
   resources :posts, except: [:new, :create]
   resources :favorites, only: [:create, :destroy]
-
+  resources :favorite_shops, only: [:create, :destroy]
 end

@@ -46,6 +46,8 @@ class User < ApplicationRecord
   has_many :shops, through: :posts
   has_many :favorites, dependent: :destroy
   has_many :favo_contents, through: :favorites, source: :post, dependent: :destroy
+  has_many :favorite_shops, dependent: :destroy
+  has_many :favo_shops, through: :favorite_shops, source: :shop
   
   def like(post)
     self.favorites.find_or_create_by(post_id: post.id)
@@ -59,4 +61,18 @@ class User < ApplicationRecord
   def favorite?(post)
     self.favo_contents.include?(post)
   end
+  
+  def like_shop(shop)
+    self.favorite_shops.find_or_create_by(shop_id: shop.id)
+  end
+  
+  def unlike_shop(shop)
+    favorite = self.favorite_shops.find_by(shop_id: shop.id)
+    favorite.destroy if favorite
+  end
+  
+  def favo_shop?(shop)
+    self.favo_shops.include?(shop)
+  end
+  
 end
