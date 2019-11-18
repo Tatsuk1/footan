@@ -1,9 +1,29 @@
 class ShopsController < ApplicationController
 before_action :shop_list
+before_action :shop_list_instagram
+before_action :shop_list_vegetable
 before_action :require_user_logged_in, only:[:show]
   def index
     if @rests
       @shops = Kaminari.paginate_array(@rests).page(params[:page]).per(12)
+    else
+      flash.now[:danger]='条件を満たす店舗が見つかりませんでした'
+      render :index
+    end
+  end
+
+  def instagram
+    if @rests_instagram
+      @shops = Kaminari.paginate_array(@rests_instagram).page(params[:page]).per(12)
+    else
+      flash.now[:danger]='条件を満たす店舗が見つかりませんでした'
+      render :index
+    end
+  end
+  
+  def vegetable
+    if @rests_vegetable
+      @shops = Kaminari.paginate_array(@rests_vegetable).page(params[:page]).per(12)
     else
       flash.now[:danger]='条件を満たす店舗が見つかりませんでした'
       render :index

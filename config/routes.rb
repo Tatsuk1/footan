@@ -10,9 +10,11 @@ Rails.application.routes.draw do
     member do
       get :likes
       get :like_shops
+      get :random_shops
     end
   end    
-  
+  get 'shops_instagram', to: 'shops#instagram'
+  get 'shops_vegetable', to: 'shops#vegetable'
   resources :shops, only: [:index, :show, :create] do
     resources :posts, only: [:new, :create]
   end

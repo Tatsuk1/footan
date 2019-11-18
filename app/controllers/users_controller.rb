@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show]
   before_action :correct_user, only: [:edit, :update]
-  before_action :set_user, only: [:show, :edit, :update, :likes, :like_shops]
+  before_action :set_user, only: [:show, :edit, :update, :likes, :like_shops, :random_shops]
    
   def index
   end
@@ -47,6 +47,12 @@ class UsersController < ApplicationController
   def like_shops
     @shops = @user.favo_shops.order(id: :desc)
     counts(@user)
+  end
+  
+  def random_shops
+    @shops = @user.favo_shops.order(id: :desc)
+    @shop = @shops.sample(1)
+    redirect_to shop_path(@shop)
   end
   
   private
