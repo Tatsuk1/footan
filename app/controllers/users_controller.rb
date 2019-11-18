@@ -51,8 +51,13 @@ class UsersController < ApplicationController
   
   def random_shops
     @shops = @user.favo_shops.order(id: :desc)
-    @shop = @shops.sample(1)
-    redirect_to shop_path(@shop)
+    if @shops.any?
+      @shop = @shops.sample(1)
+      redirect_to shop_path(@shop)
+    else
+      flash.now[:danger] = 'お気に入りした店がありません'
+      render :like_shops
+    end
   end
   
   private
