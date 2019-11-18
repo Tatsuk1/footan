@@ -1,24 +1,45 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Name（リポジトリ/プロジェクト/OSSなどの名前）
+名前：footan
 
-Things you may want to cover:
+ぐるなびAPIを用いた店舗検索とその店に準じて投稿ができるサービス
 
-* Ruby version
+# Features
 
-* System dependencies
+お店や投稿をお気に入りすることができる。また、お店に関してはその中からランダムで１つ選ぶことができ、
+それによって、お店選びの時間短縮が見込めると考えた。
+特定の目的を満たす様な検索も導入し、検索の時間短縮もなると思われる。
 
-* Configuration
+# Requirement
 
-* Database creation
+Ruby 2.5.3
+Rails 5.2.3
 
-* Database initialization
+# Usage
+リンク：http://footan.herokuapp.com
 
-* How to run the test suite
+アカウント
+メールアドレス:yamada@a.jp
+パスワード:aaaaaa
 
-* Services (job queues, cache servers, search engines, etc.)
+トップページに移動すると、フリーワード検索、おしゃれなカフェ検索。野菜料理のお店検索があります。
+フリーワードはワードを入力することで、最大36件のお店が取得できます。
+それ以外はクリックすることで検索できます。
+詳細を見るにはログインする必要があります。
+お店の詳細ページでお店のお気に入りと投稿、ぐるなびのサイトに飛ぶことができます。
 
-* Deployment instructions
+投稿はログインが必要です。
+お店の詳細ページで投稿ボタンおを押すと、画像、コメントをん有力することで投稿できます。
+投稿の詳細ページで同一ユーザーなら編集と削除ができ、それ以外のユーザーは言い値をすることができる
 
-* ...
+マイプロフィールで自分の投稿、いいねした投稿、お気に入りした店を見れます。
+お気に入りしたお店が複数あるとき、ランダムで選ぶを押すことでお店を１つ選び、詳細ページに飛びます。
+
+# Author
+
+作成情報を列挙する
+
+* Tatsuk1
+* 大学３年
+* t.tatsuki0417@gmail.com
