@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
 before_action :shop_list
-before_action :shop_list_instagram
-before_action :shop_list_vegetable
+#before_action :shop_list_instagram
+#before_action :shop_list_vegetable
 before_action :require_user_logged_in, only:[:show]
   def index
     if @rests
@@ -46,7 +46,7 @@ before_action :require_user_logged_in, only:[:show]
     parameters = {
     'id' => @shop.shop_code,
     'hit_per_page' => 50,
-    'keyid' => ENV['GURUNAVI_API_KEY']
+    'keyid' => '11ca4c37d610e4a7ed0880bcfa8ff006'
     }
 
     uri = URI(base_url + '?' + parameters.to_param)
