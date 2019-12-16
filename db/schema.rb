@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_16_021148) do
+ActiveRecord::Schema.define(version: 2019_12_16_083257) do
+
+  create_table "area_ls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "areacode_l"
+    t.string "areaname_l"
+    t.bigint "pref_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pref_id"], name: "index_area_ls_on_pref_id"
+  end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "category_l_code"
@@ -51,6 +60,13 @@ ActiveRecord::Schema.define(version: 2019_12_16_021148) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "prefs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "pref_code"
+    t.string "pref_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.decimal "latitude", precision: 10, scale: 7
@@ -89,6 +105,7 @@ ActiveRecord::Schema.define(version: 2019_12_16_021148) do
     t.string "remember_digest"
   end
 
+  add_foreign_key "area_ls", "prefs"
   add_foreign_key "favorite_shops", "shops"
   add_foreign_key "favorite_shops", "users"
   add_foreign_key "favorites", "posts"

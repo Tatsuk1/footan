@@ -33,9 +33,61 @@ require 'uri'
     end
   end
 
+  def pref
+    #binding.pry
+    base_url = 'https://api.gnavi.co.jp/master/PrefSearchAPI/v3/'
+    
+    parameters = {
+      'keyid' => '11ca4c37d610e4a7ed0880bcfa8ff006',
+      'lang' =>'ja'
+    }
+    
+    uri = URI(base_url + '?' + parameters.to_param)
+    
+    p response_json = Net::HTTP.get(uri)
+    
+    p response_data = JSON.parse(response_json)
+    
+    @prefs = []
+    prefs = response_data['pref']
+    
+    prefs.each do |pref|
+      point = Pref.find_or_create_by(pref_code: params['pref_code'])
+        point.pref_code = pref['pref_code']
+        point.pref_name = pref['pref_name']
+      @prefs << point
+    end
+  end
+
+  def area
+    #binding.pry
+    base_url = 'https://api.gnavi.co.jp/master/GAreaLargeSearchAPI/v3/'
+    
+    parameters = {
+      'keyid' => '11ca4c37d610e4a7ed0880bcfa8ff006',
+      'lang' =>'ja'
+    }
+    
+    uri = URI(base_url + '?' + parameters.to_param)
+    
+    p response_json = Net::HTTP.get(uri)
+    
+    p response_data = JSON.parse(response_json)
+    
+    @areas = []
+    areas = response_data['garea_large']
+    
+    areas.each do |area|
+      point = AreaL.find_or_create_by(areacode_l: params['areacode_l'])
+        point.areacode_l = area['areacode_l']
+        point.areaname_l = area['areaname_l']
+      @areas << point
+    end
+  end
+
   def shop_list
     #binding.pry
-    if params[:search].present?
+    if params[:search].present? || params[:category_l_code].present? || params[:pref_code].present?
     
       base_url='https://api.gnavi.co.jp/RestSearchAPI/v3'
       
@@ -46,6 +98,8 @@ require 'uri'
       'outret' => params[:outret],
       'takeout' => params[:takeout],
       'category_l' => params[:category_l_code],
+      'pref' => params[:pref_code],
+      'areacode_l' => params[:areacode_l],
       'hit_per_page' => 36
       }
       

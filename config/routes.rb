@@ -13,8 +13,8 @@ Rails.application.routes.draw do
       get :random_shops
     end
   end    
-  get 'shops_instagram', to: 'shops#instagram'
-  get 'shops_vegetable', to: 'shops#vegetable'
+  # get 'shops_instagram', to: 'shops#instagram'
+  # get 'shops_vegetable', to: 'shops#vegetable'
   resources :shops, only: [:index, :show, :create] do
     resources :posts, only: [:new, :create]
   end
