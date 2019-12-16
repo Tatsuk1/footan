@@ -7,6 +7,32 @@ require 'uri'
   
   private
   
+  def category
+    #binding.pry
+    base_url = 'https://api.gnavi.co.jp/master/CategoryLargeSearchAPI/v3/'
+    
+    parameters = {
+      'keyid' => '11ca4c37d610e4a7ed0880bcfa8ff006',
+      'lang' =>'ja'
+    }
+    
+    uri = URI(base_url + '?' + parameters.to_param)
+    
+    p response_json = Net::HTTP.get(uri)
+    
+    p response_data = JSON.parse(response_json)
+    
+    @categorys = []
+    categorys = response_data['category_l']
+    
+    categorys.each do |category|
+      point = Category.find_or_create_by(category_l_code: params['category_l_code'])
+        point.category_l_code = category['category_l_code']
+        point.category_l_name = category['category_l_name']
+      @categorys << point
+    end
+  end
+
   def shop_list
     #binding.pry
     if params[:search].present?
@@ -19,8 +45,7 @@ require 'uri'
       'wifi' => params[:wifi],
       'outret' => params[:outret],
       'takeout' => params[:takeout],
-      'category_l' => params[:category_l],
-      'category_s' => params[:category_s],
+      'category_l' => params[:category_l_code],
       'hit_per_page' => 36
       }
       
