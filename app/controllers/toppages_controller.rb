@@ -1,4 +1,5 @@
 class ToppagesController < ApplicationController
+before_action :category
 
   def index
   end
