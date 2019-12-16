@@ -1,16 +1,27 @@
 <body id = "index">
   <div class="text-center toppage">
+    <div class = "toppage-coment">
+      <h1>ようこそFooTanへ</h1>
+      <h3>
+        フリーワードやカテゴリ、都道府県を組み合わせて検索することができます<br>
+        最後に美味しかった料理などを投稿してそのお店の情報を共有しましょう！<br><br>
+    </div>
     <div id="nav-search">
       <div class="form-group">
         <%= form_with method: :get, url: shops_path, local: true do |f| %>
           <p>
+            <%= f.label :freeword, 'フリーワード' %>
             <%= f.text_field :search %>
             <%= f.submit "検索", :freeword => nil, class: "btn btn-primary" %>
           </p>
 
           <%= f.label :category_l_code, 'カテゴリ' %>
-          <%= f.collection_select :category_l_code, @categorys, :category_l_code, :category_l_name, :include_blank => true %>
+          <%= f.collection_select :category_l_code, @categorys, :category_l_code, :category_l_name, :include_blank => true, class: 'form-control' %>
+          <br>
+          <%= f.label :pref_code, '都道府県' %>
+          <%= f.collection_select :pref_code, @prefs, :pref_code, :pref_name, :include_blank => true , class: 'form-control'%>
           
+          <br>
           <%= f.label :wifi, class: "checkbox inline" do %>
             <%= check_box_tag :wifi %>
             <span>WiFiあり</span>
@@ -29,34 +40,30 @@
       </div>
     </div><!-- nav-search -->
     
-    <div class = "toppage-coment">
-      <h1>ようこそFooTanへ</h1>
-      <h3>
-        駅名や食べ物の種類を入力すると店舗の一覧・詳細を閲覧できます<br>
-        また「焼肉,銀座」とカンマを用いるとより絞れます<br>
-        最後に美味しかった料理などを投稿してそのお店の情報を共有できます
-    </div>
-    <div class = "special-search">
+
+    <!--<div class = "special-search">
       <div class = "category-top">
-        <%= form_tag '/shops_instagram', :method => 'get' do %>
-          <%= hidden_field_tag :search, "インスタ" %>
-          <%= image_submit_tag "appetizer-2802_640_Fotor.jpg" , class: "category-btn" %>
+        <%#= form_tag '/shops_instagram', :method => 'get' do %>
+          <%#= hidden_field_tag :search, "インスタ" %>
+          <%#= image_submit_tag "appetizer-2802_640_Fotor.jpg" , class: "category-btn" %>
           <p>「インスタ映えするおしゃれなカフェ」</p>
-        <% end %>
+        <%# end %>
       </div>
       <div class = "category-top">
-        <%= form_tag '/shops_vegetable', :method => 'get' do %>
-          <%= hidden_field_tag :search,  "健康" %>
-          <%= image_submit_tag "vegetables-752153_640_Fotor.jpg" , class: "category-btn" %>
+        <%#= form_tag '/shops_vegetable', :method => 'get' do %>
+          <%#= hidden_field_tag :search,  "健康" %>
+          <%#= image_submit_tag "vegetables-752153_640_Fotor.jpg" , class: "category-btn" %>
           <p>「野菜料理で健康的に」</p>
-        <% end %>
-      </div>
+        <%# end %>
+      </div>--> 
       <% if logged_in? %>
         <div class = "category-top">
+          <div class ="mask">
+            <div class="caption">お気に入りからランダムに選ぶ</div>
+          </div>
           <%= link_to like_shops_user_path(current_user) do%>
             <%= image_tag "businessman-on-smartphone.jpg", class: "category-btn"  %>
           <% end %>
-          <p>「お気に入りからランダムに選ぶ」</p>
         </div>
       <% end %>
     </div>
