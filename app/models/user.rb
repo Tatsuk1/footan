@@ -42,7 +42,7 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
   
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :shops, through: :posts
   has_many :favorites, dependent: :destroy
   has_many :favo_contents, through: :favorites, source: :post, dependent: :destroy

@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show]
+  before_action :require_user_logged_in, only: [:show, :index]
   before_action :correct_user, only: [:edit, :update]
   before_action :set_user, only: [:show, :edit, :update, :likes, :like_shops, :random_shops]
-   
+  before_action :admin_user, only: [:index, :destroy] 
+
   def index
+    @users = User.all
   end
 
   def show
@@ -39,6 +41,13 @@ class UsersController < ApplicationController
     end
   end
   
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash.now[:danger] = "ユーザー「#{@user.name}を削除しました。」"
+    redirect_to users_path
+  end
+
   def likes
     @posts = @user.favo_contents.order(id: :desc)
     counts(@user)
@@ -72,6 +81,10 @@ class UsersController < ApplicationController
     
     def correct_user
       @user = User.find_by(id: params[:id])
-      redirect_to root_url if current_user != @user
+      redirect_to root_url if current_user != @user 
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 end

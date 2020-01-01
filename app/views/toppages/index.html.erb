@@ -4,7 +4,11 @@
       <h1>ようこそFooTanへ</h1>
       <h3>
         フリーワードやカテゴリ、都道府県を組み合わせて検索することができます<br>
-        最後に美味しかった料理などを投稿してそのお店の情報を共有しましょう！<br><br>
+        最後に美味しかった料理などを投稿してそのお店の情報を共有しましょう！
+      <% if !logged_in? %>
+        <h3>ログインすると便利機能が使えます</h3>
+      <% end %>
+        <br><br>
     </div>
     <div id="nav-search">
       <div class="form-group">
@@ -39,7 +43,6 @@
         <% end %>
       </div>
     </div><!-- nav-search -->
-    
 
     <!--<div class = "special-search">
       <div class = "category-top">
@@ -56,6 +59,7 @@
           <p>「野菜料理で健康的に」</p>
         <%# end %>
       </div>--> 
+
       <% if logged_in? %>
         <div class = "category-top">
           <div class ="mask">

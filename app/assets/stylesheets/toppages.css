@@ -399,16 +399,27 @@
     cursor: pointer;
     transition-duration: 0.3s;
   }
-  
-.special-search .category-top{
-    display:inline-block;
-    vertical-align: top;
-}
+    
+  .special-search .category-top{
+      display:inline-block;
+      vertical-align: top;
+  }
 
-.category-btn:hover {
-  opacity: 0.6;
-transition-duration: 0.3s;
-}
+  .category-btn:hover {
+    opacity: 0.6;
+  transition-duration: 0.3s;
+  }
+
+  .users {
+    list-style: none;
+    margin: 0;
+  }
+
+  .users li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 1px solid #080808;
+  }
 
 }
 @media screen and (max-width: 479px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
