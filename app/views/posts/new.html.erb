@@ -1,7 +1,6 @@
 <% if logged_in? %>
   <%= link_to '戻る', shop_path(@shop), class: 'btn btn-success'%>
-  <div class="row post_new">
-    
+  <div class="row post_new">   
     <%= form_with(model: [@shop,@post], local: true) do |f| %>
       <div class="form-group">
         <%= f.label :image %>

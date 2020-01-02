@@ -2,8 +2,6 @@ class ShopsController < ApplicationController
 before_action :shop_list
 before_action :category
 before_action :pref
-#before_action :shop_list_instagram
-#before_action :shop_list_vegetable
 before_action :require_user_logged_in, only:[:show]
   def index
     if @rests

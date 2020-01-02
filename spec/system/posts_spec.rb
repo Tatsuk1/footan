@@ -3,13 +3,11 @@ require 'rails_helper'
 describe '投稿管理機能', type: :system do
     let(:user_a) { FactoryBot.create(:user, name: 'ユーザーA', email: 'a@example.com' ) }
     let(:user_b) { FactoryBot.create(:user, name: 'ユーザーB', email: 'b@example.com' ) }
+    let(:user_c) { FactoryBot.create(:user, name: 'ユーザーC', email: 'c@example.com', admin: true ) }
     let!(:shop_a) { FactoryBot.create(:shop, name: 'ショップA')}
     let!(:post_a) { FactoryBot.create(:post, title: '最初の投稿', content: '美味しかった',  :image => File.open(File.join(Rails.root,'/spec/bread-2796393_1920_2.jpg')), user: user_a, shop: shop_a)}
 
     before do
-        #ユーザーAを作成しておく
-        #ショップAを作成しておく
-        #作成者がユーザーAであり、ショップAのものである投稿を作成しておく
         visit login_path
         fill_in 'メールアドレス', with: login_user.email
         fill_in 'パスワード', with: login_user.password
@@ -59,9 +57,24 @@ describe '投稿管理機能', type: :system do
                 expect(page).to have_no_content '編集'
             end
         end
+
+        context 'ユーザーCがログインしている時' do
+            let(:login_user) { user_c }
+
+            before do
+                visit post_path(post_a)
+            end
+            it 'ユーザーAが作成した投稿が表示される' do
+                # ユーザーAが作成した投稿にボタンが画面上に表示されていることを確認
+                expect(page).to have_content '最初の投稿'
+                expect(page).to have_content '削除'
+                expect(page).to have_content '編集'
+            end
+        end
     end
 
-    # describe '新規作成機能' do
+    #未完成　新規作成機能
+    describe '新規作成機能' do
     #     let (:login_user){user_a}
 
     #     before do
@@ -87,5 +100,5 @@ describe '投稿管理機能', type: :system do
     #             expect(page).to have_content '投稿に失敗しました'
     #         end
     #     end
-    # end
+    end
 end
