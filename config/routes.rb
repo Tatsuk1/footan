@@ -14,8 +14,6 @@ Rails.application.routes.draw do
     end
   end    
   resources :admins, only: [:index, :destroy]
-  # get 'shops_instagram', to: 'shops#instagram'
-  # get 'shops_vegetable', to: 'shops#vegetable'
   resources :shops, only: [:index, :show, :create] do
     resources :posts, only: [:new, :create]
   end
