@@ -3,12 +3,12 @@
     <% posts.each do |post| %>
       <% if post.image? %>
         <div class="food, flex-item">
+          <%= post.title %>
+          <br>
           <%= link_to post do %>
             <%= image_tag post.image.url %>
           <% end %>
-          <%# if current_page?(likes_user_path(@user)) %>
-            <br><%= link_to post.user.name, user_path(post.user) %>
-          <%# end %>
+          <br><%= link_to post.user.name, user_path(post.user) %>
         </div><br>
       <% end %>
     <% end %>
