@@ -24,7 +24,7 @@ User.create!(name:  "Example User",
   password_confirmation: "foobar",
   admin: true)
 
-10.times do |i|
+20.times do |i|
   i += 1
   User.create(
     name: "user#{i}",
@@ -33,3 +33,23 @@ User.create!(name:  "Example User",
     password_confirmation: 'aaaaaa',
     admin: false)
 end
+
+20.times do |i|
+  i += 1
+  Post.create(
+    title: "post#{i}",
+    content: "今までで#{i}番目に美味しかった",
+    image: 'app/assets/images/bread-2796393_1920_2.jpg'
+    user_id: i
+    shop_id: i
+end
+
+# t.string "image"
+# t.string "title"
+# t.text "content"
+# t.bigint "user_id"
+# t.bigint "shop_id"
+# t.datetime "created_at", null: false
+# t.datetime "updated_at", null: false
+# t.index ["shop_id"], name: "index_posts_on_shop_id"
+# t.index ["user_id"], name: "index_posts_on_user_id"

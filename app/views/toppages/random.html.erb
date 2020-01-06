@@ -12,11 +12,11 @@
     </div>
     <div id="nav-search">
       <div class="form-group">
-        <%= form_with method: :get, url: shops_path, local: true do |f| %>
+        <%= form_with method: :get, url: random_path, local: true do |f| %>
           <p>
             <%= f.label :freeword, 'フリーワード' %>
             <%= f.text_field :search %>
-            <%= f.submit "検索", :freeword => nil, class: "btn btn-primary" %>
+            <%= f.submit "ランダム検索", :freeword => nil, class: "btn btn-primary" %>
           </p>
 
           <%= f.label :category_l_code, 'カテゴリ' %>
@@ -46,22 +46,22 @@
 
     <div class = "category-top">
         <div class ="mask">
-            <div class="caption">ランダム検索</div>
+            <div class="caption">通常検索</div>
         </div>
-        <%= link_to random_toppage_path do%>
+        <%= link_to root_path do%>
             <%= image_tag "businessman-on-smartphone.jpg", class: "category-btn"  %>
         <% end %>
     </div>
     <br>
     <% if logged_in? %>
-      <div class = "category-top">
-        <div class ="mask">
-          <div class="caption">お気に入りからランダムに選ぶ</div>
+        <div class = "category-top">
+            <div class ="mask">
+            <div class="caption">お気に入りからランダムに選ぶ</div>
+            </div>
+            <%= link_to like_shops_user_path(current_user) do%>
+            <%= image_tag "businessman-on-smartphone.jpg", class: "category-btn"  %>
+            <% end %>
         </div>
-        <%= link_to like_shops_user_path(current_user) do%>
-          <%= image_tag "businessman-on-smartphone.jpg", class: "category-btn"  %>
-        <% end %>
-      </div>
     <% end %>
   </div>
 </body>

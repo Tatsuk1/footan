@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root to: 'toppages#index'
-  
+
+  get 'random_toppage', to: 'toppages#random'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   
   get 'signup', to: 'users#new'
+  get 'random', to: 'shops#random'
   resources :users do
     member do
       get :likes
