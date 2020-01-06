@@ -34,16 +34,6 @@ User.create!(name:  "Example User",
     admin: false)
 end
 
-20.times do |i|
-  i += 1
-  Post.create(
-    title: "post#{i}",
-    content: "今までで#{i}番目に美味しかった",
-    image: 'app/assets/images/bread-2796393_1920_2.jpg'
-    user_id: i
-    shop_id: i
-end
-
 # t.string "image"
 # t.string "title"
 # t.text "content"
