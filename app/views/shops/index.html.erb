@@ -16,10 +16,10 @@
 
               <%= f.label :category_l_code, 'カテゴリ' %>
               <%= f.collection_select :category_l_code, @categorys, :category_l_code, :category_l_name, :include_blank => true %>
-              <br>
-              <%= f.label :pref_code, '都道府県' %>
-              <%= f.collection_select :pref_code, @prefs, :pref_code, :pref_name, :include_blank => true %>
-              
+             <br>
+              <%= f.label :areacode_l, 'エリア' %>
+              <%= f.collection_select :areacode_l, @areal, :areacode_l, :areaname_l, :include_blank => true , class: 'form-control'%>
+          
               <br>
               <%= f.label :wifi, class: "checkbox inline" do %>
                 <%= check_box_tag :wifi %>

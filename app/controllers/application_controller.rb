@@ -76,18 +76,21 @@ require 'uri'
     
     @areas = []
     areas = response_data['garea_large']
-    
+
+    @areal = []
     areas.each do |area|
-      point = AreaL.find_or_create_by(areacode_l: params['areacode_l'])
+      if area["pref"]["pref_code"] == "PREF13"
+        point = AreaLl.find_or_create_by(areacode_l: "areacode_l")
         point.areacode_l = area['areacode_l']
         point.areaname_l = area['areaname_l']
-      @areas << point
+        @areal << point
+      end
     end
   end
 
   def shop_list
     #binding.pry
-    if params[:search].present? || params[:category_l_code].present? || params[:pref_code].present?
+    if params[:search].present? || params[:category_l_code].present? || params[:areacode_l].present?
     
       base_url='https://api.gnavi.co.jp/RestSearchAPI/v3'
       
@@ -98,7 +101,7 @@ require 'uri'
       'outret' => params[:outret],
       'takeout' => params[:takeout],
       'category_l' => params[:category_l_code],
-      'pref' => params[:pref_code],
+      'pref' => 'PREF13',
       'areacode_l' => params[:areacode_l],
       'hit_per_page' => 36
       }

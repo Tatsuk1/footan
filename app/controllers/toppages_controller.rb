@@ -1,6 +1,6 @@
 class ToppagesController < ApplicationController
 before_action :category
-before_action :pref
+before_action :area
 
   def index
   end

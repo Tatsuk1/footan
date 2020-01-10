@@ -9,6 +9,7 @@
             <%= image_tag post.image.url %>
           <% end %>
           <br><%= link_to post.user.name, user_path(post.user) %>
+          ❤️<%= post.favorites.count%>
         </div><br>
       <% end %>
     <% end %>

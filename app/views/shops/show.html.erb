@@ -13,6 +13,7 @@
         </div>
       <% end %>
       <%= render "favorite_shops/favorite_shops", shop: @shop %>
+      <%= @likes_count %>
       <br><%= @shop.pr %>
       <br><br>住所: <%= @shop.address %>
       <br><br>電話番号: <%= @shop.tel %>
