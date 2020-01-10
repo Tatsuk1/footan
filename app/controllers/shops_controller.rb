@@ -1,7 +1,7 @@
 class ShopsController < ApplicationController
 before_action :shop_list
 before_action :category
-before_action :pref
+before_action :area
 before_action :require_user_logged_in, only:[:show]
 
   def index
@@ -62,10 +62,15 @@ before_action :require_user_logged_in, only:[:show]
     end
   end
 
+  def rank
+    @ranks = Shop.find(FavoriteShop.group(:shop_id).order('count(shop_id) desc').limit(10).pluck(:shop_id))
+  end
+
   def show
     #binding.pry
     @shop = Shop.find(params[:id])
     @posts = @shop.posts.order(id: :desc)
+    @likes_count = FavoriteShop.where(shop_id: @shop.id).count
   end
   
   def create

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
   get 'random', to: 'shops#random'
+  get 'ranking', to: 'shops#rank'
   resources :users do
     member do
       get :likes

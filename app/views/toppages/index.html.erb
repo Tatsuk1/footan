@@ -1,10 +1,11 @@
 <body id = "index">
   <div class="text-center toppage">
     <div class = "toppage-coment">
-      <h1>ようこそFooTanへ</h1>
-      <h3>
-        フリーワードやカテゴリ、都道府県を組み合わせて検索することができます<br>
-        最後に美味しかった料理などを投稿してそのお店の情報を共有しましょう！
+      <h1>即決</h1>
+      <h2>毎日の食事に飽きて来たあなたに</h2>
+      <h3>お店を検索し、お気に入りをするとその中からランダムで選ぶことができます<br>
+          新しい発見をしたり、食事に気力を消費したくない人にもおすすめです</h3>
+        
       <% if !logged_in? %>
         <h3>
         ログインすると便利機能が使えます<br>
@@ -26,8 +27,12 @@
           <%= f.label :category_l_code, 'カテゴリ' %>
           <%= f.collection_select :category_l_code, @categorys, :category_l_code, :category_l_name, :include_blank => true, class: 'form-control' %>
           <br>
-          <%= f.label :pref_code, '都道府県' %>
-          <%= f.collection_select :pref_code, @prefs, :pref_code, :pref_name, :include_blank => true , class: 'form-control'%>
+          <%#= f.label :pref_code, '都道府県' %>
+          <%#= f.collection_select :pref_code, @prefs, :pref_code, :pref_name, :include_blank => true , class: 'form-control'%>
+<%# binding.pry %>           
+          <br>
+          <%= f.label :areacode_l, 'エリア' %>
+          <%= f.collection_select :areacode_l, @areal, :areacode_l, :areaname_l, :include_blank => true , class: 'form-control'%>
           
           <br>
           <%= f.label :wifi, class: "checkbox inline" do %>
@@ -48,24 +53,34 @@
       </div>
     </div><!-- nav-search -->
 
-    <div class = "category-top">
+    <div class= 'flex-container'>
+      <div class = "category-top">
         <div class ="mask">
-            <div class="caption">ランダム検索</div>
+          <div class="caption">ランダム検索</div>
         </div>
         <%= link_to random_toppage_path do%>
             <%= image_tag "mushimegane_question_icon_1029-300x300.png", class: "category-btn"  %>
         <% end %>
-    </div>
-    <br>
-    <% if logged_in? %>
+      </div>
       <div class = "category-top">
         <div class ="mask">
-          <div class="caption">お気に入りからランダムに選ぶ</div>
+          <div class="caption">ランキング</div>
         </div>
-        <%= link_to like_shops_user_path(current_user) do%>
-          <%= image_tag "businessman-on-smartphone.jpg", class: "category-btn"  %>
+        <%= link_to ranking_path do%>
+            <%= image_tag "rating-4068907_640.jpg", class: "category-btn"  %>
         <% end %>
       </div>
-    <% end %>
+      <br>
+      <% if logged_in? %>
+        <div class = "category-top">
+          <div class ="mask">
+            <div class="caption">お気に入りからランダムに選ぶ</div>
+          </div>
+          <%= link_to like_shops_user_path(current_user) do%>
+            <%= image_tag "businessman-on-smartphone.jpg", class: "category-btn"  %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </body>

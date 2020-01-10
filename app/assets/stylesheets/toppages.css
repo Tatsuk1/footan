@@ -15,16 +15,20 @@
   #index{
     margin: 0;
     padding: 0;
-    background: radial-gradient(orange, rgb(243, 224, 200));
+    background-color: #f0f0f0;
   }
   
   .toppage{
     padding:30px 10px 60px 10px;
-    color: white;
+    color: #101010;
   }
   
-  
-  
+  .toppage h1 {
+    font-family: 楷書MCBK1;
+    color: #080808;
+    font-size: 80px;
+  }
+
   .login{
       padding-top: 20px;
       color: white;
@@ -381,11 +385,11 @@
   
   .category-top{
     border: 1px solid #ddd;
-    margin-left:140px;
-    width : 800px;
+    margin-left:50px;
+    width : 250px;
     height:150px;
     overflow: hidden;
-    background: #000;
+    background: #33CCFF;
     border-radius:20px;
   }
  .category-top input{
@@ -474,14 +478,20 @@
   #index{
     margin: 0;
     padding: 0;
-    background: radial-gradient(orange, rgb(243, 224, 200));
+    background-color: #f0f0f0;
   }
   
   .toppage{
     margin-top:50px;
     padding-top:30px;
     padding-bottom:10px;
-    color: white;
+    color: #101010;
+  }
+
+  .toppage h1 {
+    font-family: 楷書MCBK1;
+    color: #080808;
+    font-size: 40px;
   }
   
   .signin{
@@ -804,7 +814,8 @@
   }
   
   .shop-topimage img {
-    margin-top:-10px;
+    margin-top:-60px;
+    margin-left: -40px;
   }
   
   .shop-topimage::before,
@@ -816,25 +827,14 @@
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
-  .shop-topimage::before {
-    top: 0;
-    left: 0;
-    border-top: 1px solid #555;
-    border-left: 1px solid #555;
-  }
-  .shop-topimage::after {
-    bottom: 0;
-    right: 0;
-    border-bottom: 1px solid #555;
-    border-right: 1px solid #555;
-  }
+
   .category-top{
     border: 1px solid #ddd;
     margin-left: 20px;
     width : 300px;
     height:100px;
     overflow: hidden;
-    background: #000;
+    background: #33CCFF;
     border-radius:20px;
   }
  .category-top input{
@@ -856,5 +856,9 @@
   .category-btn:hover {
     opacity: 0.6;
   transition-duration: 0.3s;
+  }
+
+  .btn5{
+    margin-left: 20px;
   }
 }

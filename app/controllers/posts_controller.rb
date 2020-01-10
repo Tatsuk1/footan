@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def show
     @shop = @post.shop
+    @likes_count = Favorite.where(post_id: @post.id).count
   end
 
   def create
