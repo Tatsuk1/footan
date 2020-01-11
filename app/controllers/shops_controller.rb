@@ -54,11 +54,14 @@ before_action :require_user_logged_in, only:[:show]
         @shop.station_exit = rest['access']['station_exit']
         @shop.walk = rest['access']['walk']
       end
-    end
-    if @shop.save
-      redirect_to @shop
+      if @shop.save
+        redirect_to @shop
+      else
+        redirect_back(fallback_location: root_url)
+      end
     else
-      redirect_back(fallback_location: root_url)
+      flash.now[:danger]='条件を満たす店舗が見つかりませんでした'
+      render :index
     end
   end
 
