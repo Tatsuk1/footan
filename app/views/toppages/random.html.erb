@@ -32,6 +32,12 @@
           <%= f.label :areacode_l, 'エリア' %>
           <%= f.collection_select :areacode_l, @areal, :areacode_l, :areaname_l, :include_blank => true , class: 'form-control'%>
           
+          <br>
+          <%= f.label "予算" %>
+          <%= f.select :lowestBudget, [["500", '500'], ["1000", '1000'], ["1500", '1500'],["2000", '2000'],["2500", '2500'],  ["3000", '3000'],  ["3500", '3500']],include_blank: "---" %>
+          <span>~</span>
+          <%= f.select :customerBudget, [["500", '500'], ["1000", '1000'], ["1500", '1500'],["2000", '2000'],["2500", '2500'],  ["3000", '3000'],  ["3500", '3500']],include_blank: "---" %>
+
           
           <br>
           <%= f.label :wifi, class: "checkbox inline" do %>

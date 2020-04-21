@@ -385,7 +385,8 @@
   
   .category-top{
     border: 1px solid #ddd;
-    margin-left:50px;
+    margin-left:100px;
+    margin-right:-26px;
     width : 250px;
     height:150px;
     overflow: hidden;

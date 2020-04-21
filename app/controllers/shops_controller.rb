@@ -35,7 +35,7 @@ before_action :require_user_logged_in, only:[:show]
       p response_data = JSON.parse(response_json)
         
       rests = response_data['rest']
-      
+
       rests.each do |rest|    
         @shop.shop_code = rest['id'] 
         @shop.name = rest['name']

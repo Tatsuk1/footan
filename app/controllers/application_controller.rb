@@ -115,29 +115,48 @@ require 'uri'
       @rests = []
       rests = response_data['rest']
       
+      if params['customerBudget'] == ""
+        customerBudget = 10000000
+      else
+        customerBudget = params['customerBudget'].to_i
+      end
+
+      if params['lowestBudget'] == ""
+        lowestBudget = 0
+      else
+        lowestBudget = params['lowestBudget'].to_i
+      end
+
+
       if rests
         rests.each do |rest|
-          shop = Shop.find_or_initialize_by(shop_code: rest['id'])
-          if !shop.id.present?
-            shop.shop_code = rest['id'] 
-            shop.name = rest['name']
-            shop.latitude = rest['latitude']
-            shop.longitude = rest['longitude']
-            shop.shop_url = rest['url']
-            shop.pr = rest['pr']['pr_short']
-            shop.image_url = rest['image_url']['shop_image1']
-            shop.address = rest['address']
-            shop.tel = rest['tel']
-            shop.opentime = rest['opentime']
-            shop.holiday = rest['holiday']
-            shop.budget = rest['budget']
-            shop.line = rest['access']['line']
-            shop.station = rest['access']['station']
-            shop.station_exit = rest['access']['station_exit']
-            shop.walk = rest['access']['walk']
-            shop.category_name_l = rest['code']['category_name_l']
+          if customerBudget >= rest['budget'].to_i && lowestBudget<= rest['budget'].to_i
+            shop = Shop.find_or_initialize_by(shop_code: rest['id'])
+            if !shop.id.present?
+              shop.shop_code = rest['id'] 
+              shop.name = rest['name']
+              shop.latitude = rest['latitude']
+              shop.longitude = rest['longitude']
+              shop.shop_url = rest['url']
+              shop.pr = rest['pr']['pr_short']
+              shop.image_url = rest['image_url']['shop_image1']
+              shop.address = rest['address']
+              shop.tel = rest['tel']
+              shop.opentime = rest['opentime']
+              shop.holiday = rest['holiday']
+              shop.budget = rest['budget']
+              shop.line = rest['access']['line']
+              shop.station = rest['access']['station']
+              shop.station_exit = rest['access']['station_exit']
+              shop.walk = rest['access']['walk']
+              shop.category_name_l = rest['code']['category_name_l']
+            end
+            @rests << shop
           end
-          @rests << shop
+        end
+        if @rests == []
+          flash.now[:danger]='条件を満たす店舗が見つかりませんでした'
+          render :index
         end
       else
         flash.now[:danger]='条件を満たす店舗が見つかりませんでした'

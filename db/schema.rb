@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_09_005534) do
+ActiveRecord::Schema.define(version: 2020_04_21_013005) do
 
   create_table "area_lls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "areacode_l"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 2020_01_09_005534) do
     t.string "category_name_l"
     t.string "category_l"
     t.string "category_s"
+    t.integer "customerBudget"
+    t.integer "lowestBudget"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
